@@ -136,18 +136,19 @@ Virtual environment digunakan untuk untuk mengisolasi dan mengelola dependensi d
 
 **1. Apa perbedaan antara form POST dan form GET dalam Django?**
 
-Perbedaan utama antara form POST dan form GET di Django adalah bagaimana keduanya menangani data dan kasus penggunaannya yang dimaksudkan. GET untuk mengambil data dengan data yang terlihat di URL, sedangkan POST untuk mengirim data ke server secara aman dengan data di badan permintaan. Pilihan Anda di antara keduanya bergantung pada fungsionalitas spesifik dan persyaratan keamanan aplikasi web Anda.
+Perbedaan utama antara form POST dan form GET di Django adalah bagaimana keduanya menangani data dan kasus penggunaannya yang dimaksudkan. GET untuk mengambil data dengan data yang terlihat di URL, sedangkan POST untuk mengirim data ke server secara aman dengan data di badan permintaan. Pilihan di antara keduanya bergantung pada fungsionalitas spesifik dan persyaratan keamanan aplikasi web.
 
 
 **2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
 
-JSON (JavaScript Object Notation) adalah turunan dari Object di Javascript yang digunakan sebagai format untuk data delivery. Data pada JSON disimpan dalam bentuk array yang berisi key dan value. Key akan dipanggil dan value akan dikembalikan. Value dapat berupa tipe data primitif (string, number, boolean) ataupun berupa objek. Dengan demikian, JSON menyimpan elemennya dengan cara yang efisien, sehingga JSON banyak digunakan untuk pemrograman di berbagai bahasa, seperti C++ dan Python. Kekurangannya adalah, Tampilan JSON kurang rapih sehingga kurang mudah dimengerti oleh pembacanya.
+XML (eXtensible Markup Language), JSON (JavaScript Object Notation), dan HTML (Hypertext Markup Language) adalah tiga format data berbeda yang sering digunakan untuk tujuan berbeda dalam konteks pengiriman data di web.
 
+JSON (JavaScript Object Notation) adalah format pengiriman data yang diturunkan dari Object dalam Javascript. Data JSON disimpan dalam bentuk array dengan _key_ dan _value_. _Key_ akan dipanggil dan nilainya akan dikembalikan. _Value_ dapat berupa tipe data sederhana (_string, number,_ dan _boolean_) atau objek. Karena penyimpanan elemen JSON yang efisien, JSON sering digunakan untuk pemrograman dalam berbagai bahasa seperti C++ dan Python. Kekurangannya adalah tampilan JSON yang kurang rapih sehingga menyulitkan pembaca dalam membacanya.
 
-Sedangkan, XML (Extensible Markup Language) adalah sebuah bahasa markup. Berbeda dengan JSON, XML lebih berfokus pada penampilan data yang tersimpan secara terstruktur dan rapi. Namun, dapat dikatakan kurang efisien. Bahasa markup yang ada di XML lebih mudah dimengerti manusia dibandingkan JSON yang hanya berupa array.
+Sedangkan, XML (Extensible Markup Language) merupakan bahasa markup. Berbeda dengan JSON, XML mengutamakan menampilkan data yang disimpan secara terstruktur dan rapi. Namun, bisa dikatakan hal ini kurang efisien. Manusia dapat memahami bahasa markup XML lebih baik daripada JSON, yang pada dasarnya adalah sebuah array.
 
+HTML (HyperText Markup Language) adalah bahasa markup seperti XML. Hanya saja, HTML berkonsentrasi pada proses menampilkan data daripada transfer data. HTML adalah bahasa markup yang digunakan untuk menerapkan prinsip tata letak dan format pada dokumen teks.
 
-Sama seperti XML, HTML (HyperText Markup Language) juga merupakan bahasa markup. Hanya saja, HTML lebih berfokus pada proses menyajikan data, bukan mentransfer data. HTML digunakan untuk menerapkan tata letak dan konvensi pemformatan ke dokumen teks.
 
 **3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**
 
@@ -155,3 +156,9 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
 
 
 **4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+
+1) Membuat input form untuk menambahkan objek model pada app sebelumnya.
+   
+2) Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+
+3) Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
