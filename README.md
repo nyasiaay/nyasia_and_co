@@ -162,3 +162,24 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
 2) Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
 3) Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+
+
+**Screenshot hasil akses URL pada Postman**
+1) HTML
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1a549322-4657-4d36-8981-4192dabb2a8c)
+   
+2) XML
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/038b77c9-5edf-4f10-91cc-8a3699ba302c)
+
+3) JSON
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/035a6571-ae7d-4ac6-9554-de02ad7fc610)
+
+4) XML _by ID_
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/ec18c23d-456c-4846-a747-a951ec7ad104)
+
+5) JSON _by ID_
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1f945a32-ddc3-48ee-911a-1210f04d7f33)
+
+
+
+
