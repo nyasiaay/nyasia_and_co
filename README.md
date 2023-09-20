@@ -158,12 +158,222 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
 **4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 
 1) Membuat input form untuk menambahkan objek model pada app sebelumnya.
+
+   Pertama-tama saya membuka `urls.py` yang ada di _folder_ `nyasia_co` dan mengubah _path_ yang ada pada `urlpatterns` menjadi seperti berikut supaya saat membuka web nya tidak perlu menambah `/main`
    
+         urlpatterns = [
+          path('', include('main.urls'))
+            path('admin/', admin.site.urls),
+         ]
+
+   Selanjutnya saya membuat _folder_ baru bernama `templates` pada _folder_ utama dan membuat _file_ HTML bernama `base.html`. Ini berfungsi sebagai kerangka umum untuk halaman webnya. Lalu saya mengisi _file_ tersebut dengan kode sebagai berikut:
+
+         {% load static %}
+         <!DOCTYPE html>
+         <html lang="en">
+             <head>
+                 <meta charset="UTF-8" />
+                 <meta
+                     name="viewport"
+                     content="width=device-width, initial-scale=1.0"
+                 />
+                 {% block meta %}
+                 {% endblock meta %}
+             </head>
+         
+             <body>
+                 {% block content %}
+                 {% endblock content %}
+             </body>
+         </html>
+
+   Setelah itu saya membuka berkas `settings.py` yang ada di _folder_ `nyasia_co` dan mengubah kodenya agar _file_ `base.html` terdeteksi sebagai berkas template
+
+         TEMPLATES = [
+             {
+                 'BACKEND': 'django.template.backends.django.DjangoTemplates',
+                 'DIRS': [BASE_DIR / 'templates'], # Tambahkan kode ini
+                 'APP_DIRS': True,
+                 ...
+             }
+         ]
+
+   Kemudian saya mengubah kode pada berkas `main.html` yang ada di _folder_ `templates` menjadi berikut ini agar ia menggunakan template utama `base.html`
+
+         {% extends 'base.html' %}
+         
+         {% block content %}
+             <h1>nyasia & co.</h1>
+         
+             <h5>Name:</h5>
+             <p>{{name}}</p>
+         
+             <h5>Class:</h5>
+             <p>{{class}}</p>
+         {% endblock content %}
+
+   Setelah itu, saya membuat _file_ baru bernama `forms.py` di direktori utama dan menambahkan kode sebagai berikut:
+
+         from django.forms import ModelForm
+         from main.models import Item
+         
+         class ProductForm(ModelForm):
+             class Meta:
+                 model = Item
+                 fields = ["name", "amount", "description"]
+   
+   Kemudian saya mengubah berkas `views.py` yang ada di _folder_ `main` dan menambahkan beberapa _import_ sebagai berikut:
+
+         from django.http import HttpResponseRedirect
+         from main.forms import ProductForm
+         from django.urls import reverse
+         from main.models import Item
+
+   Lalu, saya menambahkan fungsi baru dengan nama `create_product` di berkas `views.py` agar menerima parameter `request` untuk menghasilkan formulir yang dapat menambahkan data produk secara otomatis ketika data di-_submit_ dari _form_.
+
+         def create_product(request):
+             form = ProductForm(request.POST or None)
+         
+             if form.is_valid() and request.method == "POST":
+                 form.save()
+                 return HttpResponseRedirect(reverse('main:show_main'))
+         
+             context = {'form': form}
+             return render(request, "create_product.html", context)
+
+Saya juga mengubah fungsi `show_main` pada berkas `views.py` sebagai berikut untuk mengambil seluruh _object_ Item yang tersimpan pada _database_.
+
+         def show_main(request):
+             products = Item.objects.all()
+         
+             context = {
+                 'name': 'Nyasia Aludra Yasmina', 
+                 'class': 'PBP E', 
+                 'products': products
+             }
+         
+             return render(request, "main.html", context)
+
+   Setelah itu, saya membuka `urls.py` pada _folder_ `main` dan _import_ fungsi `create_product`
+
+         from main.views import show_main, create_product
+
+   Lalu, saya menambahkan _path url_ ke dalam `urlpatterns` pada `urls.py` di _folder_ `main` untuk mengakses fungsi yang sudah di-_import_
+
+         path('create-product', create_product, name='create_product'),
+
+   Kemudian, saya membuat _file_ HTML baru bernama `create_product.html` di _folder_ `template` dalam `main` dan menambahkan kode sebagai berikut:
+
+         {% extends 'base.html' %} 
+         
+         {% block content %}
+         <h1>Add New Product</h1>
+         
+         <form method="POST">
+             {% csrf_token %}
+             <table>
+                 {{ form.as_table }}
+                 <tr>
+                     <td></td>
+                     <td>
+                         <input type="submit" value="Add Product"/>
+                     </td>
+                 </tr>
+             </table>
+         </form>
+         
+         {% endblock %}
+
+   Dan pada berkas `main.html` saya menambahkan kode sebagai berikut:
+
+             <table>
+                 <tr>
+                     <th>Name</th>
+                     <th>Amount</th>
+                     <th>Description</th>
+         
+                 </tr>
+         
+         
+                 {% for product in products %}
+                     <tr>
+                         <td>{{product.name}}</td>
+                         <td>{{product.amount}}</td>
+                         <td>{{product.description}}</td>
+         
+                     </tr>
+                 {% endfor %}
+             </table>
+         
+         <br />
+         
+         <a href="{% url 'main:create_product' %}">
+             <button>
+                 Add New Product
+             </button>
+         </a>
+         
+         
+         {% endblock content %}
+
+
 2) Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
 
+   Untuk menambahkan 5 fungsi views tersebut, pertama-tama saya menambahkan _import_ di berkas `views.py` pada direktori `main` sebagai berikut:
+
+         from django.http import HttpResponse
+         from django.core import serializers
+
+   Selanjutnya saya menambahkan fungsi-fungsi berikut di berkas `views.py` pada direktori `main`
+
+         def show_xml(request):
+             data = Item.objects.all()
+             return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+         
+         def show_json(request):
+             data = Item.objects.all()
+             return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+         
+         def show_xml_by_id(request, id):
+             data = Item.objects.filter(pk=id)
+             return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
+         
+         def show_json_by_id(request, id):
+             data = Item.objects.filter(pk=id)
+             return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+
+   
 3) Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
 
+   Untuk membuat routing URL, saya _import_ fungsi-fungsi sebagai berikut pada berkas `urls.py`:
 
+         from main.views import show_main, create_product, show_xml, show_json, show_xml_by_id, show_json_by_id
+
+   Kemudian saya menambahkan _path_ url berikut ini di `urlpatterns` untuk mengakses fungsi yang sudah diimpor.
+
+         urlpatterns = [
+             path('', show_main, name='show_main'),
+             path('create-product', create_product, name='create_product'),
+             path('xml/', show_xml, name='show_xml'), 
+             path('json/', show_json, name='show_json'), 
+             path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'),
+             path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
+         
+         ]
+
+   Lalu, kita dapat mengecek dengan mengakses _link-link_ berikut ini:
+   
+   http://localhost:8000
+
+   http://localhost:8000/xml
+
+   http://localhost:8000/json
+
+   http://localhost:8000/xml/[id]
+
+   http://localhost:8000/json/[id]
+
+   
 **Screenshot hasil akses URL pada Postman**
 1) HTML
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1a549322-4657-4d36-8981-4192dabb2a8c)
