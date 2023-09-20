@@ -241,7 +241,7 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
              context = {'form': form}
              return render(request, "create_product.html", context)
 
-Saya juga mengubah fungsi `show_main` pada berkas `views.py` sebagai berikut untuk mengambil seluruh _object_ Item yang tersimpan pada _database_.
+   Saya juga mengubah fungsi `show_main` pada berkas `views.py` sebagai berikut untuk mengambil seluruh _object_ Item yang tersimpan pada _database_.
 
          def show_main(request):
              products = Item.objects.all()
@@ -374,7 +374,7 @@ Saya juga mengubah fungsi `show_main` pada berkas `views.py` sebagai berikut unt
    http://localhost:8000/json/[id]
 
    
-**Screenshot hasil akses URL pada Postman**
+**5. Screenshot hasil akses URL pada Postman**
 1) HTML
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1a549322-4657-4d36-8981-4192dabb2a8c)
    
