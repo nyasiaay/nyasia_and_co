@@ -6,7 +6,7 @@
 
 ### Link    : `https://nyasia-and-co.adaptable.app/main/`
 
-### Tugas 2
+# Tugas 2
 
 **1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
 
@@ -131,7 +131,7 @@ Virtual environment digunakan untuk untuk mengisolasi dan mengelola dependensi d
 
 
 
-### Tugas 3
+# Tugas 3
 
 
 **1. Apa perbedaan antara form POST dan form GET dalam Django?**
@@ -391,5 +391,82 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1f945a32-ddc3-48ee-911a-1210f04d7f33)
 
 
+# Tugas 4
 
+**1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
 
+Django `UserCreationForm` adalah _built-in form class_ dalam sistem autentikasi Django, dirancang khusus untuk menyederhanakan pembuatan formulir pendaftaran pengguna dalam aplikasi web Django. Kegunaan utama formulir ini adalah untuk memungkinkan pengguna mendaftar akun di aplikasi web kita. Formnya mencakup tiga bidang _default_: 'username,' 'password1,' and 'password2' (biasa digunakan utnuk konfirmasi kata sandi). `UserCreationForm` memudahkan pembuatan akun pengguna baru yang dapat mengakses dan menggunakan aplikasi web kita.
+
+Untuk menggunakan `UserCreationForm` kita perlu _import_ dari django.contrib.auth.forms. seperti berikut ini:
+
+    from django.contrib.auth.forms import UserCreationForm  
+
+Kelebihan Django `UserCreationForm` :
+  1) Mudah digunakan
+     Karena `UserCreationForm` sudah _built-in_ dalam django, untuk menggunakannya kita hanya perlu men-_import_
+  2) Dapat di-_custom_
+     Kita dapat menkostumisasi sesuai dengan kebutuhan kita. Kita dapat melakukan kostumisasi dengan menambahkan bidang tambahan atau mengubah yang sudah ada untuk menyesuaikan kebutuhan aplikasi web kita.
+  3) Integrasi dengan sistem autentikasi django
+     Karena `UserCreationForm` sudah terintegrasi dengan baik dengan sistem autentikasi Django, yang membuatnya lebih mudah untuk mengelola autentikasi pengguna.
+
+Kekurangan Django `UserCreationForm` :
+  1) Keterbatasan dalam Bidang
+     `UserCreationForm` hanya menyertakan beberapa bidang dasar seperti username, password, dan email. Jika kita memerlukan bidang tambahan untuk profil pengguna, kita perlu membuat form kustom atau menggunakan aplikasi pihak ketiga.
+  2) _Styling_ UI yang terbatas
+     HTML dan _style_ default form mungkin tidak cocok dengan desain dan estetika aplikasi web kita. Kita perlu meluangkan waktu dalam menata gaya dan mengintegrasikannya ke frontend kita, yang mungkin memerlukan keahlian CSS dan JavaScript.
+  3) Ketergantungan pada Django
+     Jika kita memutuskan untuk menggunakan _framework_ lain di masa depan, kita mungkin perlu menulis ulang bagian autentikasi kita, termasuk penggunaan UserCreationForm.
+
+**2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+
+Autentikasi dan otorisasi adalah dua konsep penting dalam pengembangan web, termasuk Django. Berikut perbedaan keduanya:
+
+- Autentikasi
+  
+  Autentikasi adalah proses memverifikasi identitas pengguna. Ini melibatkan pemeriksaan apakah pengguna tersebut sesuai dengan klaimnya. Sistem autentikasi Django sangat _general_ dan tidak menyediakan beberapa fitur yang biasa ditemukan dalam sistem autentikasi web.
+
+- Otorisasi
+
+  Otorisasi menentukan apa yang boleh dilakukan oleh pengguna yang diautentikasi. Ini adalah proses pemberian atau penolakan akses ke data tertentu. Dalam proses otorisasi, otoritas seseorang atau pengguna diperiksa untuk mengakses data. Di Django, otorisasi menentukan apa yang boleh dilakukan oleh pengguna yang diautentikasi.
+
+Baik autentikasi dan otorisasi penting dalam Django dan pengembangan web secara umum. Mereka membantu memastikan bahwa hanya pengguna yang berwenang yang dapat mengakses data tertentu dan melakukan tindakan tertentu. Hal ini membantu melindungi informasi sensitif dan mencegah akses tidak sah ke sistem dan data penting. 
+
+**3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+
+_Cookies_ adalah potongan kecil data yang disimpan di sisi klien dan dikirim ke server dengan setiap _request_. Dalam konteks aplikasi web, _cookies_ digunakan untuk menyimpan data pengguna, seperti informasi login, preferensi, dan data sesi. Django, menggunakan _cookies_ untuk mengelola data sesi pengguna. Berikut ini bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna:
+
+- Django mengabstraksi proses pengiriman dan penerimaan _cookies_ dengan menempatkan _cookies_ ID sesi di sisi klien dan menyimpan semua data terkait di sisi server.
+
+- _Framework_ sesi membiarkan kita menyimpan data arbitrer berdasarkan per pengunjung situs. Ini menyimpan data di sisi server dan mengabstraksi pengiriman dan penerimaan _cookies_.
+
+- _Cookies_ berisi ID sesi, bukan data itu sendiri, kecuali kita menggunakan _backend_ berbasis _cookies_. Data itu sendiri tidak disimpan di sisi klien, dan ini bagus dari sudut pandang keamanan.
+
+- Secara _default_, Django membuat serial data sesi menggunakan JSON. Kita dapat menggunakan pengaturan untuk menyesuaikan format serialisasi sesi.
+
+- Django menyediakan dukungan penuh untuk sesi anonim. Data sesi disimpan di sisi server, sedangkan _cookies_ disimpan di sisi klien.
+
+- Ada beberapa cara berbeda untuk mengonfigurasi mesin sesi yang mengontrol cara menyimpan sesi, yaitu dalam database atau cache.
+
+- Secara _default_, Django hanya menyimpan ke database sesi dan mengirimkan _cookies_ sesi ke klien ketika sesi telah dimodifikasi atau dihapus.
+
+**4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+
+Meskipun _cookies_ adalah fitur umum dalam pengembangan web, ada potensi risiko terkait penggunaannya yang harus diwaspadai oleh _developers_.
+
+- _Cyberattacks_: _Cookies_ dapat digunakan untuk mempertahankan serangan berbahaya seperti _cross-site scripting_ (XSS) atau _cross-site request forgery_ (CSRF).
+
+- Pembajakan: Tergantung pada bagaimana _cookies_ digunakan dan diekspos, _cookies_ dapat menimbulkan risiko keamanan yang serius. Misalnya, _cookies_ dapat dibajak, dan token sesi/autentikasi sensitif yang disimpan dalam _cookies_ dapat diambil oleh pelaku kejahatan, sehingga menyebabkan pencurian kredensial dan informasi identitas pribadi, serta penipuan kartu kredit.
+
+- Kebocoran data: Jika informasi dari _cookies_ jatuh ke tangan yang salah, data pengguna berisiko diretas, menjadi sasaran _ransomware_, dan aktivitas berbahaya lainnya.
+
+Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, seperti menyetel tanda aman pada _cookies_, menggunakan HTTPS saat mengunjungi situs, dan menyimpan _cookies_ dengan informasi sensitif dalam format terenkripsi. Dengan mengambil tindakan pencegahan ini, pengembang dapat membantu memastikan bahwa penggunaan _cookies_ mereka aman dan terjamin.
+
+**5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+
+1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+
+2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+
+3. Menghubungkan model Item dengan User.
+
+4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
