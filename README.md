@@ -51,7 +51,8 @@
         
   Kita dapat membuat model tersebut dengan mengisi berkas `models.py` seperti berikut ini:
 
-  ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/ef49294e-6265-4acd-baa6-248775b15b31)
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/3db87086-d979-4e38-95e0-50c7563769ac)
+
 
         
   Setelah itu, kita perlu melakukan migrasi untuk menyimpan model dan atributnya pada database dengan menjalankan perintah sebagai berikut di terminal.
