@@ -11,6 +11,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages  
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
+
 
 # Create your views here.
 @login_required(login_url='/login')
@@ -86,3 +88,23 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+@login_required(login_url='/login')
+def add_amount(request, item_id):
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
+    item.amount += 1
+    item.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+@login_required(login_url='/login')
+def minus_amount(request, item_id):
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
+    item.amount -= 1
+    item.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+@login_required(login_url='/login')
+def delete_item(request, item_id):
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
+    item.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))

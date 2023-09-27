@@ -43,52 +43,54 @@
 
 **4) Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut.**
  
-      - `name` sebagai nama item dengan tipe `CharField`.
+  - `name` sebagai nama item dengan tipe `CharField`.
         
-      - `amount` sebagai jumlah item dengan tipe `IntegerField.` 
+  - `amount` sebagai jumlah item dengan tipe `IntegerField.` 
         
-      - `description` sebagai deskripsi item dengan tipe `TextField`.
+  - `description` sebagai deskripsi item dengan tipe `TextField`.
         
-      Kita dapat membuat model tersebut dengan mengisi berkas `models.py` seperti berikut ini:
+  Kita dapat membuat model tersebut dengan mengisi berkas `models.py` seperti berikut ini:
 
-       ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/ef49294e-6265-4acd-baa6-248775b15b31)
+  ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/ef49294e-6265-4acd-baa6-248775b15b31)
 
         
-      Setelah itu, kita perlu melakukan migrasi untuk menyimpan model dan atributnya pada database dengan menjalankan perintah sebagai berikut di terminal.
+  Setelah itu, kita perlu melakukan migrasi untuk menyimpan model dan atributnya pada database dengan menjalankan perintah sebagai berikut di terminal.
    
-           python manage.py makemigrations
-           python manage.py migrate
+  ```python
+  python manage.py makemigrations
+  python manage.py migrate
+  ```
 
 
 **5) Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.**
 
-      Pertama-tama kita perlu membuat berkas `main.html` di dalam berkas `templates` yang berisi sebagai berikut:
+  Pertama-tama kita perlu membuat berkas `main.html` di dalam berkas `templates` yang berisi sebagai berikut:
         
-      ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/b6f1382d-1c06-4ffd-8c34-a5228907f2a0)
+  ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/b6f1382d-1c06-4ffd-8c34-a5228907f2a0)
 
    
-      Selanjutnya kita perlu membuka berkas `views.py` yang ada di dalam berkas aplikasi `main` kemudian kita menambahkan baris impor sebagai berikut di bagian berkas paling atas dan kita juga tambahkan fungsi `show_main` di bawah importi seperti berikut ini:
+  Selanjutnya kita perlu membuka berkas `views.py` yang ada di dalam berkas aplikasi `main` kemudian kita menambahkan baris impor sebagai berikut di bagian berkas paling atas dan kita juga tambahkan fungsi `show_main` di bawah importi seperti berikut ini:
 
-      ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/9f47d6f1-bb6f-42f5-aa16-e7c7b2d57737)
+  ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/9f47d6f1-bb6f-42f5-aa16-e7c7b2d57737)
 
     
 **6) Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.**
 
-      Untuk mengerjakan langkah ini kita perlu membuat berkas `urls.py` di direktori aplikasi `main`untuk memetakan fungsi yang sudah dibuat di `views.py` dan mengisi berkas `urls.py` sebagai berikut:
+  Untuk mengerjakan langkah ini kita perlu membuat berkas `urls.py` di direktori aplikasi `main`untuk memetakan fungsi yang sudah dibuat di `views.py` dan mengisi berkas `urls.py` sebagai berikut:
 
-      ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/bd74df1c-2b91-47d1-a4ce-c7c0cfc0cc91)
+  ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/bd74df1c-2b91-47d1-a4ce-c7c0cfc0cc91)
 
     
 **7) Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.**
-      - Pertama-tama kita perlu membuat akun di Adaptable.io dengan akun github yang berisi repositori yang sudah dibuat sebelumnya.
+  - Pertama-tama kita perlu membuat akun di Adaptable.io dengan akun github yang berisi repositori yang sudah dibuat sebelumnya.
         
-      - Lalu kita dapat membuat aplikasi dengan menekan `New App` kemudian sambungkan dengan repositori `nyasia_and_co` dengan menekan `Connect an Existing Repository`.
+  - Lalu kita dapat membuat aplikasi dengan menekan `New App` kemudian sambungkan dengan repositori `nyasia_and_co` dengan menekan `Connect an Existing Repository`.
         
-      - Selanjutnya kita pilih proyek `nyasia_and_co`kemudian pilih `Python App Template`, `PostgreSQL`, dan versi python yang tepat.
+  - Selanjutnya kita pilih proyek `nyasia_and_co`kemudian pilih `Python App Template`, `PostgreSQL`, dan versi python yang tepat.
         
-      - Setelah itu kita tambahkan perintah `python manage.py migrate && gunicorn nyasia-and-co.wsgi`
+  - Setelah itu kita tambahkan perintah `python manage.py migrate && gunicorn nyasia-and-co.wsgi`
         
-      - Lalu, proses deploy aplikasi dapat dilihat di website Adaptible.io
+  - Lalu, proses deploy aplikasi dapat dilihat di website Adaptible.io
 
 
 
@@ -158,35 +160,40 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
 **1) Membuat input form untuk menambahkan objek model pada app sebelumnya.**
 
    Pertama-tama saya membuka `urls.py` yang ada di _folder_ `nyasia_co` dan mengubah _path_ yang ada pada `urlpatterns` menjadi seperti berikut supaya saat membuka web nya tidak perlu menambah `/main`
-   
-         urlpatterns = [
-          path('', include('main.urls'))
-            path('admin/', admin.site.urls),
-         ]
+
+```python
+   urlpatterns = [
+   path('', include('main.urls'))
+   path('admin/', admin.site.urls),
+    ]
+```
 
    Selanjutnya saya membuat _folder_ baru bernama `templates` pada _folder_ utama dan membuat _file_ HTML bernama `base.html`. Ini berfungsi sebagai kerangka umum untuk halaman webnya. Lalu saya mengisi _file_ tersebut dengan kode sebagai berikut:
 
-         {% load static %}
-         <!DOCTYPE html>
-         <html lang="en">
-             <head>
-                 <meta charset="UTF-8" />
-                 <meta
-                     name="viewport"
-                     content="width=device-width, initial-scale=1.0"
-                 />
-                 {% block meta %}
-                 {% endblock meta %}
-             </head>
-         
-             <body>
-                 {% block content %}
-                 {% endblock content %}
-             </body>
-         </html>
+```python
+     {% load static %}
+     <!DOCTYPE html>
+     <html lang="en">
+         <head>
+             <meta charset="UTF-8" />
+             <meta
+                 name="viewport"
+                 content="width=device-width, initial-scale=1.0"
+             />
+             {% block meta %}
+             {% endblock meta %}
+         </head>
+     
+         <body>
+             {% block content %}
+             {% endblock content %}
+         </body>
+     </html>
+```
 
    Setelah itu saya membuka berkas `settings.py` yang ada di _folder_ `nyasia_co` dan mengubah kodenya agar _file_ `base.html` terdeteksi sebagai berkas template
 
+```python
          TEMPLATES = [
              {
                  'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -195,9 +202,11 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
                  ...
              }
          ]
+```
 
    Kemudian saya mengubah kode pada berkas `main.html` yang ada di _folder_ `templates` menjadi berikut ini agar ia menggunakan template utama `base.html`
 
+```python
          {% extends 'base.html' %}
          
          {% block content %}
@@ -209,9 +218,11 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
              <h5>Class:</h5>
              <p>{{class}}</p>
          {% endblock content %}
+```
 
    Setelah itu, saya membuat _file_ baru bernama `forms.py` di direktori utama dan menambahkan kode sebagai berikut:
 
+```python
          from django.forms import ModelForm
          from main.models import Item
          
@@ -219,16 +230,20 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
              class Meta:
                  model = Item
                  fields = ["name", "amount", "description"]
+```
    
    Kemudian saya mengubah berkas `views.py` yang ada di _folder_ `main` dan menambahkan beberapa _import_ sebagai berikut:
 
+```python
          from django.http import HttpResponseRedirect
          from main.forms import ProductForm
          from django.urls import reverse
          from main.models import Item
+```
 
    Lalu, saya menambahkan fungsi baru dengan nama `create_product` di berkas `views.py` agar menerima parameter `request` untuk menghasilkan formulir yang dapat menambahkan data produk secara otomatis ketika data di-_submit_ dari _form_.
 
+```python
          def create_product(request):
              form = ProductForm(request.POST or None)
          
@@ -238,9 +253,11 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
          
              context = {'form': form}
              return render(request, "create_product.html", context)
+```
 
    Saya juga mengubah fungsi `show_main` pada berkas `views.py` sebagai berikut untuk mengambil seluruh _object_ Item yang tersimpan pada _database_.
 
+```python
          def show_main(request):
              products = Item.objects.all()
          
@@ -251,17 +268,22 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
              }
          
              return render(request, "main.html", context)
+```
 
    Setelah itu, saya membuka `urls.py` pada _folder_ `main` dan _import_ fungsi `create_product`
 
+```python
          from main.views import show_main, create_product
+```
 
    Lalu, saya menambahkan _path url_ ke dalam `urlpatterns` pada `urls.py` di _folder_ `main` untuk mengakses fungsi yang sudah di-_import_
-
+```python
          path('create-product', create_product, name='create_product'),
+```
 
    Kemudian, saya membuat _file_ HTML baru bernama `create_product.html` di _folder_ `template` dalam `main` dan menambahkan kode sebagai berikut:
 
+```python
          {% extends 'base.html' %} 
          
          {% block content %}
@@ -281,9 +303,11 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
          </form>
          
          {% endblock %}
+```
 
    Dan pada berkas `main.html` saya menambahkan kode sebagai berikut:
 
+```python
              <table>
                  <tr>
                      <th>Name</th>
@@ -313,17 +337,20 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
          
          
          {% endblock content %}
-
+```
 
 **2) Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.**
 
    Untuk menambahkan 5 fungsi views tersebut, pertama-tama saya menambahkan _import_ di berkas `views.py` pada direktori `main` sebagai berikut:
 
+```python
          from django.http import HttpResponse
          from django.core import serializers
+```
 
    Selanjutnya saya menambahkan fungsi-fungsi berikut di berkas `views.py` pada direktori `main`
 
+```python
          def show_xml(request):
              data = Item.objects.all()
              return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
@@ -339,16 +366,19 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
          def show_json_by_id(request, id):
              data = Item.objects.filter(pk=id)
              return HttpResponse(serializers.serialize("json", data), content_type="application/json")
-
+```
    
 **3) Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
 
    Untuk membuat routing URL, saya _import_ fungsi-fungsi sebagai berikut pada berkas `urls.py`:
 
+```python
          from main.views import show_main, create_product, show_xml, show_json, show_xml_by_id, show_json_by_id
+```
 
    Kemudian saya menambahkan _path_ url berikut ini di `urlpatterns` untuk mengakses fungsi yang sudah diimpor.
 
+```python
          urlpatterns = [
              path('', show_main, name='show_main'),
              path('create-product', create_product, name='create_product'),
@@ -358,6 +388,7 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
              path('json/<int:id>/', show_json_by_id, name='show_json_by_id'), 
          
          ]
+```
 
    Lalu, kita dapat mengecek dengan mengakses _link-link_ berikut ini:
    
@@ -465,9 +496,11 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
 
   Untuk mengimplementasikan fungsi registrasi, login, dan logout, pertama-tama kita perlu meng-_import_ `redirect`. `UserCreationForm`, dan `messages` pada berkas `views.py` yang ada di _folder_ `main`.
 
+```python
       from django.shortcuts import redirect
       from django.contrib.auth.forms import UserCreationForm
       from django.contrib import messages  
+```
     
   Dengan meng-_import_ `UserCreationForm`, pengguna baru dapat mendaftar dengan mudah di aplikasi web kita tanpa harus menulis kode dari awal.
 
@@ -475,6 +508,7 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
     
   Untuk mengimplementasikan fungsi registrasi, kita perlu membuat fungsi dengan nama `register` yang menerima parameter `request`pada berkas `views.py` yang ada di _folder_ `main` dengan kode seperti berikut:
 
+```python
         def register(request):
         form = UserCreationForm()
 
@@ -486,9 +520,10 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
               return redirect('main:login')
         context = {'form':form}
         return render(request, 'register.html', context)
+```
 
   Selanjutnya kita perlu membuat berkas HTML baru dengan nama `register.html` pada direktori `main/templates` dengan isi kode sebagai berikut:
-
+```python
         {% extends 'base.html' %}
 
         {% block meta %}
@@ -523,24 +558,31 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
         </div>  
 
         {% endblock content %}
-
+```
 
   Lalu, kita buka `urls.py` di subdirektori `main` dan _import_ fungsi tadi
 
+```python
     from main.views import register
+```
 
   Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
 
+```python
     path('register/', register, name='register'),
+```
 
   **- Login:**
   
   Untuk mengimplementasikan fungsi login, kita perlu meng- _import_ `authenticate` dan `login` di berkas `views.py` pada _folder_ `main`
 
+```python
     from django.contrib.auth import authenticate, login
+```
 
   Selanjutnya, kita perlu membuat fungsi dengan nama `login` yang menerima parameter `request`pada berkas `views.py` yang ada di _folder_ `main` dengan kode seperti berikut:
 
+```python
     def login_user(request):
         if request.method == 'POST':
             username = request.POST.get('username')
@@ -553,9 +595,11 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
                 messages.info(request, 'Sorry, incorrect username or password. Please try again.')
         context = {}
         return render(request, 'login.html', context)
+```
 
   Setelah itu, kita perlu membuat berkas HTML baru dengan nama `login.html` pada direktori `main/templates` dengan isi kode sebagai berikut:
 
+```python
     {% extends 'base.html' %}
 
     {% block meta %}
@@ -601,42 +645,57 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
     </div>
 
     {% endblock content %}
+```
 
   Lalu, kita buka `urls.py` di subdirektori `main` dan _import_ fungsi tadi
 
+```python
     from main.views import login_user
+```
 
   Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
 
+```python
     path('login/', login_user, name='login'),
+```
 
   **- Logout:**
 
   Untuk mengimplementasikan fungsi logout, kita perlu meng- _import_ `logout` di berkas `views.py` pada _folder_ `main`
 
+```python
     from django.contrib.auth import logout
+```
 
   Setelah itu, kita perlu menambahkan kode di bawah ini ke fungsi `logout`
 
+```python
     def logout_user(request):
         logout(request)
         return redirect('main:login')
+```
 
   Selanjutnya, kita tambahkan potongan kode di bawah ini setelah _hyperlink tag_ untuk _Add New Product_ pada berkas `main.html`.
 
+```python
     <a href="{% url 'main:logout' %}">
         <button>
             Logout
         </button>
     </a>
+```
 
   Lalu, kita buka `urls.py` di subdirektori `main` dan _import_ fungsi tadi
 
+```python
     from main.views import logout_user
+```
 
   Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
 
+```python
     path('logout/', logout_user, name='logout'),
+```
 
 **2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
 
@@ -648,11 +707,14 @@ Pertama-tama kita perlu _import_ user ke berkas `models.py` pada _folder_ `main`
 
 Lalu, kita tambahkan potongan kode di bawah ini pada model `Item`:
 
+```python
     class Item(models.Model):
         user = models.ForeignKey(User, on_delete=models.CASCADE)
+```
 
 Selanjutnya, kita buka `view.py` di _folder_ `main` dan ubah potongan kode pada fungsi create_product menjadi sebagai berikut:
 
+```python
     def create_product(request):
     form = ProductForm(request.POST or None)
 
@@ -661,35 +723,111 @@ Selanjutnya, kita buka `view.py` di _folder_ `main` dan ubah potongan kode pada 
         product.user = request.user
         product.save()
         return HttpResponseRedirect(reverse('main:show_main'))
-
+```
 
 **4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
 
 Pertama-tama, kita ubah fungsi `show_main` menjadi seperti di bawah dengan fungsi untuk menampilkan objek `Item` yang terasosiasikan dengan pengguna yang sedang login.
 
+```python
         def show_main(request):
             products = Product.objects.filter(user=request.user)
 
             context = {
                 'name': request.user.username,
+```
 
 Untuk menampilkan data _last login_, kita perlu meng-_import_ `datetime` di berkas `views.py` pada _folder_ main, lalu mengubah kode `login_user` menjadi seperti berikut:
 
+```python
     if user is not None:
         login(request, user)
         response = HttpResponseRedirect(reverse("main:show_main")) 
         response.set_cookie('last_login', str(datetime.datetime.now()))
         return response
+```
 
 Selanjutnya, kita tambahkan `context` pada funsdi `show_main` dengan kode berikut:
 
+```python
     'last_login': request.COOKIES['last_login'],
+```
 
 Setelah itu untuk menghapus data cookie pengguna yang baru saja logout, kita tambahakan kode di fungsi `logout_user` dengan kode berikut:
 
+```python
 response = HttpResponseRedirect(reverse('main:login'))
 response.delete_cookie('last_login')
+```
 
 Untuk menampilkan informasi user yang sedang login, kita tambahkan context di berkas `main.html` seperti berikut:
 
+```python
     <h5>Sesi terakhir login: {{ last_login }}</h5>
+```
+
+**4. Membuat tombol menambah dan mengurangi jumlah _Item_ dan tombol _delete Item_**
+
+Pertama-tama kita _import_ fungsi `get_object_or_404`, setelah itu kita buat fungsi masing-masing untuk menambah, mengurangi, dan menghapus _item_ seperti berikut ini pada berkas `views.py`:
+
+```python
+@login_required(login_url='/login')
+def add_amount(request, item_id):
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
+    item.amount += 1
+    item.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+@login_required(login_url='/login')
+def minus_amount(request, item_id):
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
+    item.amount -= 1
+    item.save()
+    return HttpResponseRedirect(reverse('main:show_main'))
+
+@login_required(login_url='/login')
+def delete_item(request, item_id):
+    item = get_object_or_404(Item, pk=item_id, user=request.user)
+    item.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))
+```
+
+Setelah itu kita mengubah kode di berkas `main.html` menjadi seperti berikut agar fungsi-fungsinya terhubung dan menambah tombol yang diperlukan:
+
+```python
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.amount }}</td>
+                <td>{{ product.description }}</td>
+                <td>
+                    <a href="{% url 'main:add_amount' product.id %}">
+                        <button>
+                            +
+                        </button>
+                    </a>
+                    <a href="{% url 'main:minus_amount' product.id %}">
+                        <button>
+                            -
+                        </button>
+                    </a>
+                    <a href="{% url 'main:delete_item' product.id %}">
+                        <button>
+                            Delete
+                        </button>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+```
+
+Setelah itu, meng-_import_ fungsi yang telah dibuat ke berkas `views.py` dan menambahkan _path url_ ke `urlpatterns` seperti berikut ini:
+
+```python
+path('add_amount/<int:item_id>/', add_amount, name='add_amount'),
+path('minus_amount/<int:item_id>/', minus_amount, name= 'minus_amount'),
+path('delete/<int:item_id>/', delete_item, name='delete_item'),
+```
+
+Berikut adalah tampilan kedua akun yang telah saya buat dengan tombol-tombol yang ditambahkan
+
