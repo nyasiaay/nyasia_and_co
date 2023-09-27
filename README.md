@@ -8,9 +8,9 @@
 
 # Tugas 2
 
-**1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+## 1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial). ##
 
-1) Membuat sebuah proyek Django baru.
+**1) Membuat sebuah proyek Django baru.**
 
    Untuk membuat proyek Django baru, pertama-tama kita perlu membuat repositori baru di github lalu membuat direktori baru bernama `nyasia_and_co`. Setelah itu kita tambahkan berkas `requirements.txt` di direktori tersebut. Di dalam file txt itu kita tambahkan beberapa _dependencies_ yaitu:
    
@@ -29,20 +29,19 @@
    Setelah itu, kita perlu mengupload proyek ke repositori dengan melakukan `add`, `commit`, dan `push`.
 
 
-2) Membuat aplikasi dengan nama main pada proyek tersebut.
+**2) Membuat aplikasi dengan nama main pada proyek tersebut.**
 
    Untuk membuat aplikasi main pada proyek tersebut dapat dilakukan dengan menjalankan perintah: `python manage.py startapp main`
 
     
-3) Melakukan routing pada proyek agar dapat menjalankan aplikasi main.
-
+**3) Melakukan routing pada proyek agar dapat menjalankan aplikasi main.**
    Setelah membuat aplikasi main, kita melakukan routing pada proyek dengan cara menambahkan `main` ke berkas `settings.py` pada variabel `INSTALLED_APPS` di dalam direktori proyek `nyasia_and_co` seperti berikut
 
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/937bcc0c-65f5-4b46-a392-74a99ab621cd)
 
 
 
- 4) Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut.
+**4) Membuat model pada aplikasi main dengan nama Item dan memiliki atribut wajib sebagai berikut.**
  
       - `name` sebagai nama item dengan tipe `CharField`.
         
@@ -61,7 +60,7 @@
            python manage.py migrate
 
 
-5) Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.
+**5) Membuat sebuah fungsi pada views.py untuk dikembalikan ke dalam sebuah template HTML yang menampilkan nama aplikasi serta nama dan kelas kamu.**
 
       Pertama-tama kita perlu membuat berkas `main.html` di dalam berkas `templates` yang berisi sebagai berikut:
         
@@ -73,14 +72,14 @@
       ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/9f47d6f1-bb6f-42f5-aa16-e7c7b2d57737)
 
     
-6) Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.
+**6) Membuat sebuah routing pada urls.py aplikasi main untuk memetakan fungsi yang telah dibuat pada views.py.**
 
       Untuk mengerjakan langkah ini kita perlu membuat berkas `urls.py` di direktori aplikasi `main`untuk memetakan fungsi yang sudah dibuat di `views.py` dan mengisi berkas `urls.py` sebagai berikut:
 
       ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/bd74df1c-2b91-47d1-a4ce-c7c0cfc0cc91)
 
     
-7) Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+**7) Melakukan deployment ke Adaptable terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.**
       - Pertama-tama kita perlu membuat akun di Adaptable.io dengan akun github yang berisi repositori yang sudah dibuat sebelumnya.
         
       - Lalu kita dapat membuat aplikasi dengan menekan `New App` kemudian sambungkan dengan repositori `nyasia_and_co` dengan menekan `Connect an Existing Repository`.
@@ -93,17 +92,17 @@
 
 
 
-**2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.**
+## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.##
 
    ![CLIENT](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/0ad43871-8976-4471-b30d-8b90a217d05b)
 
    Saat _client_ memasukkan URL ke browsernya, mereka menginisiasi permintaan. Setelah itu, dilakukan pemetaan alamat dari URL ke _views_ yang sesuai. _Views_ akan mengirimkan permintaan data ke _Models_, yang akan mengembalikan data dari _database_.  _Views_ akan berhubungan dengan berkas HTML di template setelah menerima data dari _Models_. _Views_ pada fungsi akan mengarah ke berkas HTML. Data yang dikumpulkan dari akses database _Models_ kemudian dikembalikan sesuai dengan panggilan dalam berkas HTML. _Webpage_ kemudian akan ditampilkan kepada _client_ berdasarkan parameter pada file HTML yang telah disiapkan.
 
-**3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?**
+## 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?##
 
 Virtual environment digunakan untuk untuk mengisolasi dan mengelola dependensi dan lingkungan pengembangan. Dengan virtual environment, kita dapat membuat lingkungan terisolasi yang tidak berinteraksi dengan lingkungan Python global di sistem. Meskipun memungkinkan untuk membuat aplikasi web berbasis Django tanpa virtual environment dalam lingkungan server lokal dengan menggunakan environment Python bawaan, hal ini menjadi lebih rumit saat proyek perlu di-host secara online. Ketika di-host, server akan mencari daftar dependensi dalam berkas "requirements.txt" untuk memenuhi paket yang diperlukan oleh proyek. Jika virtual environment tidak diinisialisasi dan "requirements.txt" tidak ada, mesin host tidak akan tahu dependensi apa yang diperlukan untuk menjalankan server, sehingga proyek tidak dapat berfungsi.
 
-**4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.**
+## 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.##
    
  **A. MVC (Model-View-Controller):** pola arsitektur yang pertama kali diperkenalkan dan lebih terfokus pada pemisahan tugas antara Model, View, dan Controller.
    
@@ -128,18 +127,17 @@ Virtual environment digunakan untuk untuk mengisolasi dan mengelola dependensi d
    - View: Menampilkan informasi kepada pengguna seperti dalam MVC.
      
    - ViewModel: Memisahkan logika presentasi dari View dan mengatur pengikatan data antara Model dan View. ViewModel ini sering digunakan dalam aplikasi berbasis pembaruan tampilan.
-
-
+## ##
 
 # Tugas 3
 
 
-**1. Apa perbedaan antara form POST dan form GET dalam Django?**
+## 1. Apa perbedaan antara form POST dan form GET dalam Django? ##
 
 Perbedaan utama antara form POST dan form GET di Django adalah bagaimana keduanya menangani data dan kasus penggunaannya yang dimaksudkan. GET untuk mengambil data dengan data yang terlihat di URL, sedangkan POST untuk mengirim data ke server secara aman dengan data di badan permintaan. Pilihan di antara keduanya bergantung pada fungsionalitas spesifik dan persyaratan keamanan aplikasi web.
 
 
-**2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data?**
+## 2. Apa perbedaan utama antara XML, JSON, dan HTML dalam konteks pengiriman data? ##
 
 XML (eXtensible Markup Language), JSON (JavaScript Object Notation), dan HTML (Hypertext Markup Language) adalah tiga format data berbeda yang sering digunakan untuk tujuan berbeda dalam konteks pengiriman data di web.
 
@@ -150,14 +148,14 @@ Sedangkan, XML (Extensible Markup Language) merupakan bahasa markup. Berbeda den
 HTML (HyperText Markup Language) adalah bahasa markup seperti XML. Hanya saja, HTML berkonsentrasi pada proses menampilkan data daripada transfer data. HTML adalah bahasa markup yang digunakan untuk menerapkan prinsip tata letak dan format pada dokumen teks.
 
 
-**3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern?**
+## 3. Mengapa JSON sering digunakan dalam pertukaran data antara aplikasi web modern? ##
 
 JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern karena sifatnya yang dapat dibaca manusia, ringan, dan tidak bergantung pada bahasa, sehingga memudahkan pertukaran data antara berbagai komponen dan layanan. Kesederhanaannya, dukungan asli dalam bahasa pemrograman, kompatibilitas dengan JavaScript, dan manfaat keamanan menjadikannya pilihan utama untuk pertukaran data, baik dalam aplikasi web maupun antar layanan web, mendorong interoperabilitas dan komunikasi yang efisien.
 
 
-**4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+## 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).##
 
-1) Membuat input form untuk menambahkan objek model pada app sebelumnya.
+**1) Membuat input form untuk menambahkan objek model pada app sebelumnya.**
 
    Pertama-tama saya membuka `urls.py` yang ada di _folder_ `nyasia_co` dan mengubah _path_ yang ada pada `urlpatterns` menjadi seperti berikut supaya saat membuka web nya tidak perlu menambah `/main`
    
@@ -317,7 +315,7 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
          {% endblock content %}
 
 
-2) Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.
+**2) Menambahkan 5 fungsi views untuk melihat objek yang sudah ditambahkan dalam format HTML, XML, JSON, XML by ID, dan JSON by ID.**
 
    Untuk menambahkan 5 fungsi views tersebut, pertama-tama saya menambahkan _import_ di berkas `views.py` pada direktori `main` sebagai berikut:
 
@@ -343,7 +341,7 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
              return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
    
-3) Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+**3) Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.**
 
    Untuk membuat routing URL, saya _import_ fungsi-fungsi sebagai berikut pada berkas `urls.py`:
 
@@ -374,26 +372,26 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
    http://localhost:8000/json/[id]
 
    
-**5. Screenshot hasil akses URL pada Postman**
-1) HTML
+## 5. Screenshot hasil akses URL pada Postman ##
+**1) HTML**
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1a549322-4657-4d36-8981-4192dabb2a8c)
    
-2) XML
+**2) XML**
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/038b77c9-5edf-4f10-91cc-8a3699ba302c)
 
-3) JSON
+**3) JSON**
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/035a6571-ae7d-4ac6-9554-de02ad7fc610)
 
-4) XML _by ID_
+**4) XML _by ID_**
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/ec18c23d-456c-4846-a747-a951ec7ad104)
 
-5) JSON _by ID_
+**5) JSON _by ID_**
    ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/1f945a32-ddc3-48ee-911a-1210f04d7f33)
-
+## ##
 
 # Tugas 4
 
-**1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?**
+## 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya? ##
 
 Django `UserCreationForm` adalah _built-in form class_ dalam sistem autentikasi Django, dirancang khusus untuk menyederhanakan pembuatan formulir pendaftaran pengguna dalam aplikasi web Django. Kegunaan utama formulir ini adalah untuk memungkinkan pengguna mendaftar akun di aplikasi web kita. Formnya mencakup tiga bidang _default_: 'username,' 'password1,' and 'password2' (biasa digunakan utnuk konfirmasi kata sandi). `UserCreationForm` memudahkan pembuatan akun pengguna baru yang dapat mengakses dan menggunakan aplikasi web kita.
 
@@ -417,21 +415,21 @@ Kekurangan Django `UserCreationForm` :
   3) Ketergantungan pada Django
      Jika kita memutuskan untuk menggunakan _framework_ lain di masa depan, kita mungkin perlu menulis ulang bagian autentikasi kita, termasuk penggunaan UserCreationForm.
 
-**2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?**
+## 2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?##
 
 Autentikasi dan otorisasi adalah dua konsep penting dalam pengembangan web, termasuk Django. Berikut perbedaan keduanya:
 
-- Autentikasi
+- **Autentikasi**
   
   Autentikasi adalah proses memverifikasi identitas pengguna. Ini melibatkan pemeriksaan apakah pengguna tersebut sesuai dengan klaimnya. Sistem autentikasi Django sangat _general_ dan tidak menyediakan beberapa fitur yang biasa ditemukan dalam sistem autentikasi web.
 
-- Otorisasi
+- **Otorisasi**
 
   Otorisasi menentukan apa yang boleh dilakukan oleh pengguna yang diautentikasi. Ini adalah proses pemberian atau penolakan akses ke data tertentu. Dalam proses otorisasi, otoritas seseorang atau pengguna diperiksa untuk mengakses data. Di Django, otorisasi menentukan apa yang boleh dilakukan oleh pengguna yang diautentikasi.
 
 Baik autentikasi dan otorisasi penting dalam Django dan pengembangan web secara umum. Mereka membantu memastikan bahwa hanya pengguna yang berwenang yang dapat mengakses data tertentu dan melakukan tindakan tertentu. Hal ini membantu melindungi informasi sensitif dan mencegah akses tidak sah ke sistem dan data penting. 
 
-**3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?**
+## 3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?##
 
 _Cookies_ adalah potongan kecil data yang disimpan di sisi klien dan dikirim ke server dengan setiap _request_. Dalam konteks aplikasi web, _cookies_ digunakan untuk menyimpan data pengguna, seperti informasi login, preferensi, dan data sesi. Django, menggunakan _cookies_ untuk mengelola data sesi pengguna. Berikut ini bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna:
 
@@ -449,7 +447,7 @@ _Cookies_ adalah potongan kecil data yang disimpan di sisi klien dan dikirim ke 
 
 - Secara _default_, Django hanya menyimpan ke database sesi dan mengirimkan _cookies_ sesi ke klien ketika sesi telah dimodifikasi atau dihapus.
 
-**4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?**
+## 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?##
 
 Meskipun _cookies_ adalah fitur umum dalam pengembangan web, ada potensi risiko terkait penggunaannya yang harus diwaspadai oleh _developers_.
 
@@ -461,12 +459,237 @@ Meskipun _cookies_ adalah fitur umum dalam pengembangan web, ada potensi risiko 
 
 Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, seperti menyetel tanda aman pada _cookies_, menggunakan HTTPS saat mengunjungi situs, dan menyimpan _cookies_ dengan informasi sensitif dalam format terenkripsi. Dengan mengambil tindakan pencegahan ini, pengembang dapat membantu memastikan bahwa penggunaan _cookies_ mereka aman dan terjamin.
 
-**5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).**
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).##
 
-1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+**1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
 
-2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+  Untuk mengimplementasikan fungsi registrasi, login, dan logout, pertama-tama kita perlu meng-_import_ `redirect`. `UserCreationForm`, dan `messages` pada berkas `views.py` yang ada di _folder_ `main`.
 
-3. Menghubungkan model Item dengan User.
+      from django.shortcuts import redirect
+      from django.contrib.auth.forms import UserCreationForm
+      from django.contrib import messages  
+    
+  Dengan meng-_import_ `UserCreationForm`, pengguna baru dapat mendaftar dengan mudah di aplikasi web kita tanpa harus menulis kode dari awal.
 
-4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
+  **- Registrasi:**
+    
+  Untuk mengimplementasikan fungsi registrasi, kita perlu membuat fungsi dengan nama `register` yang menerima parameter `request`pada berkas `views.py` yang ada di _folder_ `main` dengan kode seperti berikut:
+
+        def register(request):
+        form = UserCreationForm()
+
+        if request.method == "POST":
+          form = UserCreationForm(request.POST)
+          if form.is_valid():
+              form.save()
+              messages.success(request, 'Your account has been successfully created!')
+              return redirect('main:login')
+        context = {'form':form}
+        return render(request, 'register.html', context)
+
+  Selanjutnya kita perlu membuat berkas HTML baru dengan nama `register.html` pada direktori `main/templates` dengan isi kode sebagai berikut:
+
+        {% extends 'base.html' %}
+
+        {% block meta %}
+            <title>Register</title>
+        {% endblock meta %}
+
+        {% block content %}  
+
+        <div class = "login">
+    
+            <h1>Register</h1>  
+
+               <form method="POST" >  
+                  {% csrf_token %}  
+                  <table>  
+                    {{ form.as_table }}  
+                    <tr>  
+                        <td></td>
+                        <td><input type="submit" name="submit" value="Daftar"/></td>  
+                    </tr>  
+                  </table>  
+                </form>
+
+            {% if messages %}  
+              <ul>   
+                {% for message in messages %}  
+                   <li>{{ message }}</li>  
+                   {% endfor %}  
+              </ul>   
+            {% endif %}
+
+        </div>  
+
+        {% endblock content %}
+
+
+  Lalu, kita buka `urls.py` di subdirektori `main` dan _import_ fungsi tadi
+
+    from main.views import register
+
+  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
+
+    path('register/', register, name='register'),
+
+  **- Login:**
+  
+  Untuk mengimplementasikan fungsi login, kita perlu meng- _import_ `authenticate` dan `login` di berkas `views.py` pada _folder_ `main`
+
+    from django.contrib.auth import authenticate, login
+
+  Selanjutnya, kita perlu membuat fungsi dengan nama `login` yang menerima parameter `request`pada berkas `views.py` yang ada di _folder_ `main` dengan kode seperti berikut:
+
+    def login_user(request):
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('main:show_main')
+            else:
+                messages.info(request, 'Sorry, incorrect username or password. Please try again.')
+        context = {}
+        return render(request, 'login.html', context)
+
+  Setelah itu, kita perlu membuat berkas HTML baru dengan nama `login.html` pada direktori `main/templates` dengan isi kode sebagai berikut:
+
+    {% extends 'base.html' %}
+
+    {% block meta %}
+        <title>Login</title>
+    {% endblock meta %}
+
+    {% block content %}
+
+    <div class = "login">
+
+        <h1>Login</h1>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>Username: </td>
+                    <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                </tr>
+                        
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input class="btn login_btn" type="submit" value="Login"></td>
+                </tr>
+            </table>
+        </form>
+
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}     
+            
+        Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+
+    </div>
+
+    {% endblock content %}
+
+  Lalu, kita buka `urls.py` di subdirektori `main` dan _import_ fungsi tadi
+
+    from main.views import login_user
+
+  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
+
+    path('login/', login_user, name='login'),
+
+  **- Logout:**
+
+  Untuk mengimplementasikan fungsi logout, kita perlu meng- _import_ `logout` di berkas `views.py` pada _folder_ `main`
+
+    from django.contrib.auth import logout
+
+  Setelah itu, kita perlu menambahkan kode di bawah ini ke fungsi `logout`
+
+    def logout_user(request):
+        logout(request)
+        return redirect('main:login')
+
+  Selanjutnya, kita tambahkan potongan kode di bawah ini setelah _hyperlink tag_ untuk _Add New Product_ pada berkas `main.html`.
+
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+
+  Lalu, kita buka `urls.py` di subdirektori `main` dan _import_ fungsi tadi
+
+    from main.views import logout_user
+
+  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
+
+    path('logout/', logout_user, name='logout'),
+
+**2. Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.**
+
+Saya sudah membuat dua akun bernama nyasiaay dan aludra dan sudah menambahkan masing-masing tiga produk ke tiap akun.
+
+**3. Menghubungkan model Item dengan User.**
+
+Pertama-tama kita perlu _import_ user ke berkas `models.py` pada _folder_ `main`.
+
+Lalu, kita tambahkan potongan kode di bawah ini pada model `Item`:
+
+    class Item(models.Model):
+        user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+Selanjutnya, kita buka `view.py` di _folder_ `main` dan ubah potongan kode pada fungsi create_product menjadi sebagai berikut:
+
+    def create_product(request):
+    form = ProductForm(request.POST or None)
+
+    if form.is_valid() and request.method == "POST":
+        product = form.save(commit=False)
+        product.user = request.user
+        product.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+
+**4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
+
+Pertama-tama, kita ubah fungsi `show_main` menjadi seperti di bawah dengan fungsi untuk menampilkan objek `Item` yang terasosiasikan dengan pengguna yang sedang login.
+
+        def show_main(request):
+            products = Product.objects.filter(user=request.user)
+
+            context = {
+                'name': request.user.username,
+
+Untuk menampilkan data _last login_, kita perlu meng-_import_ `datetime` di berkas `views.py` pada _folder_ main, lalu mengubah kode `login_user` menjadi seperti berikut:
+
+    if user is not None:
+        login(request, user)
+        response = HttpResponseRedirect(reverse("main:show_main")) 
+        response.set_cookie('last_login', str(datetime.datetime.now()))
+        return response
+
+Selanjutnya, kita tambahkan `context` pada funsdi `show_main` dengan kode berikut:
+
+    'last_login': request.COOKIES['last_login'],
+
+Setelah itu untuk menghapus data cookie pengguna yang baru saja logout, kita tambahakan kode di fungsi `logout_user` dengan kode berikut:
+
+response = HttpResponseRedirect(reverse('main:login'))
+response.delete_cookie('last_login')
+
+Untuk menampilkan informasi user yang sedang login, kita tambahkan context di berkas `main.html` seperti berikut:
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
