@@ -108,3 +108,14 @@ def delete_item(request, item_id):
     item = get_object_or_404(Item, pk=item_id, user=request.user)
     item.delete()
     return HttpResponseRedirect(reverse('main:show_main'))
+
+def edit_product(request, id):
+    product = Item.objects.get(pk = id)
+    form = ProductForm(request.POST or None, instance=product)
+
+    if form.is_valid() and request.method == "POST":
+        form.save()
+        return HttpResponseRedirect(reverse('main:show_main'))
+
+    context = {'form': form}
+    return render(request, "edit_product.html", context)

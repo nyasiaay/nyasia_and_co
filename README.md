@@ -94,17 +94,17 @@
 
 
 
-## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.##
+## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html. ##
 
    ![CLIENT](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/0ad43871-8976-4471-b30d-8b90a217d05b)
 
    Saat _client_ memasukkan URL ke browsernya, mereka menginisiasi permintaan. Setelah itu, dilakukan pemetaan alamat dari URL ke _views_ yang sesuai. _Views_ akan mengirimkan permintaan data ke _Models_, yang akan mengembalikan data dari _database_.  _Views_ akan berhubungan dengan berkas HTML di template setelah menerima data dari _Models_. _Views_ pada fungsi akan mengarah ke berkas HTML. Data yang dikumpulkan dari akses database _Models_ kemudian dikembalikan sesuai dengan panggilan dalam berkas HTML. _Webpage_ kemudian akan ditampilkan kepada _client_ berdasarkan parameter pada file HTML yang telah disiapkan.
 
-## 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?##
+## 3. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment? ##
 
 Virtual environment digunakan untuk untuk mengisolasi dan mengelola dependensi dan lingkungan pengembangan. Dengan virtual environment, kita dapat membuat lingkungan terisolasi yang tidak berinteraksi dengan lingkungan Python global di sistem. Meskipun memungkinkan untuk membuat aplikasi web berbasis Django tanpa virtual environment dalam lingkungan server lokal dengan menggunakan environment Python bawaan, hal ini menjadi lebih rumit saat proyek perlu di-host secara online. Ketika di-host, server akan mencari daftar dependensi dalam berkas "requirements.txt" untuk memenuhi paket yang diperlukan oleh proyek. Jika virtual environment tidak diinisialisasi dan "requirements.txt" tidak ada, mesin host tidak akan tahu dependensi apa yang diperlukan untuk menjalankan server, sehingga proyek tidak dapat berfungsi.
 
-## 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.##
+## 4. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya. ##
    
  **A. MVC (Model-View-Controller):** pola arsitektur yang pertama kali diperkenalkan dan lebih terfokus pada pemisahan tugas antara Model, View, dan Controller.
    
@@ -155,7 +155,7 @@ HTML (HyperText Markup Language) adalah bahasa markup seperti XML. Hanya saja, H
 JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern karena sifatnya yang dapat dibaca manusia, ringan, dan tidak bergantung pada bahasa, sehingga memudahkan pertukaran data antara berbagai komponen dan layanan. Kesederhanaannya, dukungan asli dalam bahasa pemrograman, kompatibilitas dengan JavaScript, dan manfaat keamanan menjadikannya pilihan utama untuk pertukaran data, baik dalam aplikasi web maupun antar layanan web, mendorong interoperabilitas dan komunikasi yang efisien.
 
 
-## 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).##
+## 4. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial). ##
 
 **1) Membuat input form untuk menambahkan objek model pada app sebelumnya.**
 
@@ -446,7 +446,7 @@ Kekurangan Django `UserCreationForm` :
   3) Ketergantungan pada Django
      Jika kita memutuskan untuk menggunakan _framework_ lain di masa depan, kita mungkin perlu menulis ulang bagian autentikasi kita, termasuk penggunaan UserCreationForm.
 
-## 2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?##
+## 2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting? ##
 
 Autentikasi dan otorisasi adalah dua konsep penting dalam pengembangan web, termasuk Django. Berikut perbedaan keduanya:
 
@@ -460,7 +460,7 @@ Autentikasi dan otorisasi adalah dua konsep penting dalam pengembangan web, term
 
 Baik autentikasi dan otorisasi penting dalam Django dan pengembangan web secara umum. Mereka membantu memastikan bahwa hanya pengguna yang berwenang yang dapat mengakses data tertentu dan melakukan tindakan tertentu. Hal ini membantu melindungi informasi sensitif dan mencegah akses tidak sah ke sistem dan data penting. 
 
-## 3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?##
+## 3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna? ##
 
 _Cookies_ adalah potongan kecil data yang disimpan di sisi klien dan dikirim ke server dengan setiap _request_. Dalam konteks aplikasi web, _cookies_ digunakan untuk menyimpan data pengguna, seperti informasi login, preferensi, dan data sesi. Django, menggunakan _cookies_ untuk mengelola data sesi pengguna. Berikut ini bagaimana Django menggunakan _cookies_ untuk mengelola data sesi pengguna:
 
@@ -478,7 +478,7 @@ _Cookies_ adalah potongan kecil data yang disimpan di sisi klien dan dikirim ke 
 
 - Secara _default_, Django hanya menyimpan ke database sesi dan mengirimkan _cookies_ sesi ke klien ketika sesi telah dimodifikasi atau dihapus.
 
-## 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?##
+## 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? ##
 
 Meskipun _cookies_ adalah fitur umum dalam pengembangan web, ada potensi risiko terkait penggunaannya yang harus diwaspadai oleh _developers_.
 
@@ -490,7 +490,7 @@ Meskipun _cookies_ adalah fitur umum dalam pengembangan web, ada potensi risiko 
 
 Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, seperti menyetel tanda aman pada _cookies_, menggunakan HTTPS saat mengunjungi situs, dan menyimpan _cookies_ dengan informasi sensitif dalam format terenkripsi. Dengan mengambil tindakan pencegahan ini, pengembang dapat membantu memastikan bahwa penggunaan _cookies_ mereka aman dan terjamin.
 
-## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).##
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial). ##
 
 **1. Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.**
 
@@ -830,4 +830,26 @@ path('delete/<int:item_id>/', delete_item, name='delete_item'),
 ```
 
 Berikut adalah tampilan kedua akun yang telah saya buat dengan tombol-tombol yang ditambahkan
+
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/555831ae-832e-44f0-8ae5-61d0b54b1d77)
+
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/e099cc7e-3eec-4b0a-859e-062f3b2b0fac)
+
+# Tugas 5
+
+## 1.Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+
+## 2.Jelaskan HTML5 Tag yang kamu ketahui.
+
+## 3.Jelaskan perbedaan antara margin dan padding.
+
+## 4.Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+## 5.Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+**Kustomisasi desain pada templat HTML yang telah dibuat pada Tugas 4 dengan menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut**
+
+**1) Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.**
+
+**2) Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
 

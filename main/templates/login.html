@@ -5,41 +5,66 @@
 {% endblock meta %}
 
 {% block content %}
+<style>
+    body {
+        background-color: #eefaf8;
+    }
 
-<div class = "login">
+    .brand {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+    .background-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    .center-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    .centered-text {
+        text-align: center;
+    }
+</style>
+<div class="container">
+    <div class="brand">Nyasia & Co.</div>
+    <div class="row justify-content-center align-items-top min-vh-100">
+        <div class="col-md-6">
+            <div class="login background-container ">
+                <h1 class="centered-text">Login</h1>
 
-    <h1>Login</h1>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="form-group mb-4">
+                        <label for="username" class="pt-3 pb-2">Username:</label>
+                        <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+                    </div>                    
+                    <div class="form-group mb-4">
+                        <label for="password" class="pb-2">Password:</label>
+                        <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group mb-4 d-grid gap-2">
+                        <input class="btn btn-primary login_btn" type="submit" value="Login">
+                    </div>
+                </form>
 
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
+                {% if messages %}
+                    <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
 
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
-
+                Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
+            </div>
+        </div>
+    </div>
 </div>
-
 {% endblock content %}
