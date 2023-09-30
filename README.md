@@ -51,7 +51,8 @@
         
   Kita dapat membuat model tersebut dengan mengisi berkas `models.py` seperti berikut ini:
 
-  ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/ef49294e-6265-4acd-baa6-248775b15b31)
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/3db87086-d979-4e38-95e0-50c7563769ac)
+
 
         
   Setelah itu, kita perlu melakukan migrasi untuk menyimpan model dan atributnya pada database dengan menjalankan perintah sebagai berikut di terminal.
@@ -821,7 +822,13 @@ Setelah itu kita mengubah kode di berkas `main.html` menjadi seperti berikut aga
         {% endfor %}
 ```
 
-Setelah itu, meng-_import_ fungsi yang telah dibuat ke berkas `views.py` dan menambahkan _path url_ ke `urlpatterns` seperti berikut ini:
+Setelah itu, meng-_import_ fungsi yang telah dibuat ke berkas `urls.py`  
+
+```python
+from main.views import add_amount, minus_amount, delete_item
+```
+
+Dan yang terakhir, kita perlu menambahkan _path url_ ke `urlpatterns` seperti berikut ini:
 
 ```python
 path('add_amount/<int:item_id>/', add_amount, name='add_amount'),
@@ -830,6 +837,10 @@ path('delete/<int:item_id>/', delete_item, name='delete_item'),
 ```
 
 Berikut adalah tampilan kedua akun yang telah saya buat dengan tombol-tombol yang ditambahkan
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/555831ae-832e-44f0-8ae5-61d0b54b1d77)
+
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/e099cc7e-3eec-4b0a-859e-062f3b2b0fac)
+
 
 ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/555831ae-832e-44f0-8ae5-61d0b54b1d77)
 
