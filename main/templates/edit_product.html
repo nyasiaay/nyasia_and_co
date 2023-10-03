@@ -3,9 +3,11 @@
 {% load static %}
 
 {% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
     body {
-        background-color: #eefaf8;
+        background: rgb(125,216,201);
+        background: radial-gradient(circle, rgba(125,216,201,1) 0%, rgba(238,250,248,1) 100%);
     }
     .brand {
         font-size: 20px;
@@ -28,9 +30,13 @@
     .centered-text {
         text-align: center;
     }
+    .playfair {
+        font-family: 'Playfair Display', serif;
+        font-weight: bold; 
+    }
 </style>
 <div class="container">
-    <div class="brand">Nyasia & Co.</div>
+    <div class="brand playfair">Nyasia & Co.</div>
     <div class="row justify-content-center align-items-top min-vh-100">
         <div class="col-md-6">
             <div class="background-container">

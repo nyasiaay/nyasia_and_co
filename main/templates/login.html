@@ -1,15 +1,15 @@
 {% extends 'base.html' %}
-
 {% block meta %}
     <title>Login</title>
 {% endblock meta %}
 
 {% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 <style>
     body {
-        background-color: #eefaf8;
+        background: rgb(125,216,201);
+        background: radial-gradient(circle, rgba(125,216,201,1) 0%, rgba(238,250,248,1) 100%);
     }
-
     .brand {
         font-size: 20px;
         font-weight: bold;
@@ -31,9 +31,13 @@
     .centered-text {
         text-align: center;
     }
+    .playfair {
+        font-family: 'Playfair Display', serif;
+        font-weight: bold; 
+    }
 </style>
 <div class="container">
-    <div class="brand">Nyasia & Co.</div>
+    <div class="brand playfair">Nyasia & Co.</div>
     <div class="row justify-content-center align-items-top min-vh-100">
         <div class="col-md-6">
             <div class="login background-container ">
@@ -50,8 +54,15 @@
                         <input type="password" name="password" id="password" class="form-control" placeholder="Password">
                     </div>
                     <div class="form-group mb-4 d-grid gap-2">
-                        <input class="btn btn-primary login_btn" type="submit" value="Login">
+                        <button class="btn btn-primary login_btn" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                                <style>svg{fill:#ffffff}</style>
+                                <path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
+                            </svg>
+                             Login
+                        </button>
                     </div>
+                    
                 </form>
 
                 {% if messages %}
