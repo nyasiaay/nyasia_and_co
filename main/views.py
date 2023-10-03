@@ -18,12 +18,15 @@ from django.shortcuts import get_object_or_404
 @login_required(login_url='/login')
 def show_main(request):
     products = Item.objects.filter(user=request.user)
+    items_count = products.count()
 
     context = {
     'name': request.user.username,
     'class': 'PBP E',
     'products': products,
     'last_login': request.COOKIES['last_login'],
+    'items': products,
+    'items_count': items_count
 }
 
     return render(request, "main.html", context)

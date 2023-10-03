@@ -8,7 +8,6 @@
     body {
         background-color: #c9efe8;
     }
-    
     .custom-padding {
         padding-right: 10px;
     }
@@ -22,8 +21,12 @@
     .name-class {
         margin-right: 10px;
     }
-
-    /* Add your custom table styles here */
+    .background-container {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
     table {
         width: 100%;
         border-collapse: collapse;
@@ -43,14 +46,11 @@
     td {
         vertical-align: top;
     }
-    tr:nth-child(odd) {
+    tr{
         background-color: #f2f2f2;
     }
-    tr:nth-child(even) {
-        background-color: #ffff;
-    }
     tr:last-child {
-        background-color: #6daab5;
+        background-color: #a3e4d9;
     }
 </style>
 <nav class="navbar navbar-expand-lg navbar-light " style="background-color: #a3e4d9;">
@@ -75,9 +75,9 @@
         </li>
     </ul>
 </nav>
-<div class="container mt-5">
+<div class="container mt-5 background-container">
     <h1 class="playfair mb-3">Nyasia & Co.</h1>
-
+    <p class="noto-serif">You have saved <b>{{ items_count }}</b> items in this app</p>
     <table>
         <thead>
             <tr>
@@ -125,7 +125,7 @@
 
     <h5 class="mt-4 noto-serif"><strong>Last login session: {{ last_login }}</strong></h5>
     <a href="{% url 'main:create_product' %}" class="btn btn-success mt-2">
-        Add New Product
+        Add New Item
     </a>
 </div>
 {% endblock content %}
