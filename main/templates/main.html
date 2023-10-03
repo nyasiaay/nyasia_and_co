@@ -5,9 +5,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
 
 <style>
-    body {
-        background-color: #c9efe8;
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
+    body {
+        background: linear-gradient(125deg, #ECFCFF 0%, #ECFCFF 40%, #B2FCFF calc(40% + 1px), #B2FCFF 60%, #5EDFFF calc(60% + 1px), #5EDFFF 72%, #3E64FF calc(72% + 1px), #3E64FF 100%);    }
     .custom-padding {
         padding-right: 10px;
     }
@@ -53,14 +57,15 @@
         background-color: #a3e4d9;
     }
 </style>
-<nav class="navbar navbar-expand-lg navbar-light " style="background-color: #a3e4d9;">
+
+<nav class="navbar navbar-expand-lg">
     <span class="navbar-brand mb-0 h1 playfair" href="#" style="padding-left: 10px; padding-right: 10px;"><strong>Nyasia & Co.</strong></span>
     </button>
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
             <span class="navbar-text">
                 <div class="name-class noto-serif">
-                    Welcome, {{ name }}
+                    <b>Welcome, {{ name }}</b>
                 </div>
             </span>
         </li>
@@ -75,9 +80,11 @@
         </li>
     </ul>
 </nav>
+
 <div class="container mt-5 background-container">
     <h1 class="playfair mb-3">Nyasia & Co.</h1>
     <p class="noto-serif">You have saved <b>{{ items_count }}</b> items in this app</p>
+
     <table>
         <thead>
             <tr>
@@ -94,11 +101,12 @@
                     <td>
                         <div class="d-flex justify-content-between">
                             <a href="{% url 'main:add_amount' product.id %}" class="btn btn-outline-secondary btn-sm mr-4">
-                                +
+                                <b>+</b>
                             </a>
+
                             {{ product.amount }}
                             <a href="{% url 'main:minus_amount' product.id %}" class="btn btn-outline-secondary btn-sm ml-4">
-                                -
+                                <b>-</b>
                             </a>
                         </div>
                     </td>
