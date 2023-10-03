@@ -20,9 +20,9 @@
    Lalu, kita perlu jalankan _virtual environment_ dan kemudian menginstall  _dependencies_ di requirements.txt dengan menjalankan perintah berikut:
         `pip install -r requirements.txt`
 
-   Selajutnya, kita membuat proyek Django baru sesuai nama aplikasi yang sudah dibuat dengan melakukan perintah sebagai berikut:
-        `django-admin startporject nyasia_and_co .`
-        Kemudian kita perlu tambahkan `*` pada `ALLOWED_HOST` di `settings.py` agar semua host diizinkan mengaksesu untuk proses deployment nanti.
+   Selanjutnya, kita membuat proyek Django baru sesuai nama aplikasi yang sudah dibuat dengan melakukan perintah sebagai berikut:
+        `django-admin startproject nyasia_and_co .`
+        Kemudian kita perlu tambahkan `*` pada `ALLOWED_HOST` di `settings.py` agar semua host diizinkan mengakses untuk proses deployment nanti.
 
    Lalu, kita jalankan server Django dengan perintah `python manage.py runserver` di terminal.
 
@@ -70,7 +70,7 @@
   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/b6f1382d-1c06-4ffd-8c34-a5228907f2a0)
 
    
-  Selanjutnya kita perlu membuka berkas `views.py` yang ada di dalam berkas aplikasi `main` kemudian kita menambahkan baris impor sebagai berikut di bagian berkas paling atas dan kita juga tambahkan fungsi `show_main` di bawah importi seperti berikut ini:
+  Selanjutnya kita perlu membuka berkas `views.py` yang ada di dalam berkas aplikasi `main` kemudian kita menambahkan baris impor sebagai berikut di bagian berkas paling atas dan kita juga tambahkan fungsi `show_main` di bawah _import_ seperti berikut ini:
 
   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/9f47d6f1-bb6f-42f5-aa16-e7c7b2d57737)
 
@@ -144,7 +144,7 @@ Perbedaan utama antara form POST dan form GET di Django adalah bagaimana keduany
 
 XML (eXtensible Markup Language), JSON (JavaScript Object Notation), dan HTML (Hypertext Markup Language) adalah tiga format data berbeda yang sering digunakan untuk tujuan berbeda dalam konteks pengiriman data di web.
 
-JSON (JavaScript Object Notation) adalah format pengiriman data yang diturunkan dari Object dalam Javascript. Data JSON disimpan dalam bentuk array dengan _key_ dan _value_. _Key_ akan dipanggil dan nilainya akan dikembalikan. _Value_ dapat berupa tipe data sederhana (_string, number,_ dan _boolean_) atau objek. Karena penyimpanan elemen JSON yang efisien, JSON sering digunakan untuk pemrograman dalam berbagai bahasa seperti C++ dan Python. Kekurangannya adalah tampilan JSON yang kurang rapih sehingga menyulitkan pembaca dalam membacanya.
+JSON (JavaScript Object Notation) adalah format pengiriman data yang diturunkan dari Object dalam Javascript. Data JSON disimpan dalam bentuk array dengan _key_ dan _value_. _Key_ akan dipanggil dan nilainya akan dikembalikan. _Value_ dapat berupa tipe data sederhana (_string, number,_ dan _boolean_) atau objek. Karena penyimpanan elemen JSON yang efisien, JSON sering digunakan untuk pemrograman dalam berbagai bahasa seperti C++ dan Python. Kekurangannya adalah tampilan JSON yang kurang rapi sehingga menyulitkan pembaca dalam membacanya.
 
 Sedangkan, XML (Extensible Markup Language) merupakan bahasa markup. Berbeda dengan JSON, XML mengutamakan menampilkan data yang disimpan secara terstruktur dan rapi. Namun, bisa dikatakan hal ini kurang efisien. Manusia dapat memahami bahasa markup XML lebih baik daripada JSON, yang pada dasarnya adalah sebuah array.
 
@@ -425,7 +425,7 @@ JSON (JavaScript Object Notation) sering digunakan dalam aplikasi web modern kar
 
 ## 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya? ##
 
-Django `UserCreationForm` adalah _built-in form class_ dalam sistem autentikasi Django, dirancang khusus untuk menyederhanakan pembuatan formulir pendaftaran pengguna dalam aplikasi web Django. Kegunaan utama formulir ini adalah untuk memungkinkan pengguna mendaftar akun di aplikasi web kita. Formnya mencakup tiga bidang _default_: 'username,' 'password1,' and 'password2' (biasa digunakan utnuk konfirmasi kata sandi). `UserCreationForm` memudahkan pembuatan akun pengguna baru yang dapat mengakses dan menggunakan aplikasi web kita.
+Django `UserCreationForm` adalah _built-in form class_ dalam sistem autentikasi Django, dirancang khusus untuk menyederhanakan pembuatan formulir pendaftaran pengguna dalam aplikasi web Django. Kegunaan utama formulir ini adalah untuk memungkinkan pengguna mendaftar akun di aplikasi web kita. Formnya mencakup tiga bidang _default_: 'username,' 'password1,' and 'password2' (biasa digunakan untuk konfirmasi kata sandi). `UserCreationForm` memudahkan pembuatan akun pengguna baru yang dapat mengakses dan menggunakan aplikasi web kita.
 
 Untuk menggunakan `UserCreationForm` kita perlu _import_ dari django.contrib.auth.forms. seperti berikut ini:
 
@@ -435,7 +435,7 @@ Kelebihan Django `UserCreationForm` :
   1) Mudah digunakan
      Karena `UserCreationForm` sudah _built-in_ dalam django, untuk menggunakannya kita hanya perlu men-_import_
   2) Dapat di-_custom_
-     Kita dapat menkostumisasi sesuai dengan kebutuhan kita. Kita dapat melakukan kostumisasi dengan menambahkan bidang tambahan atau mengubah yang sudah ada untuk menyesuaikan kebutuhan aplikasi web kita.
+     Kita dapat mengkostumisasi sesuai dengan kebutuhan kita. Kita dapat melakukan kustomisasi dengan menambahkan bidang tambahan atau mengubah yang sudah ada untuk menyesuaikan kebutuhan aplikasi web kita.
   3) Integrasi dengan sistem autentikasi django
      Karena `UserCreationForm` sudah terintegrasi dengan baik dengan sistem autentikasi Django, yang membuatnya lebih mudah untuk mengelola autentikasi pengguna.
 
@@ -475,17 +475,17 @@ _Cookies_ adalah potongan kecil data yang disimpan di sisi klien dan dikirim ke 
 
 - Django menyediakan dukungan penuh untuk sesi anonim. Data sesi disimpan di sisi server, sedangkan _cookies_ disimpan di sisi klien.
 
-- Ada beberapa cara berbeda untuk mengonfigurasi mesin sesi yang mengontrol cara menyimpan sesi, yaitu dalam database atau cache.
+- Ada beberapa cara berbeda untuk mengkonfigurasi mesin sesi yang mengontrol cara menyimpan sesi, yaitu dalam database atau cache.
 
 - Secara _default_, Django hanya menyimpan ke database sesi dan mengirimkan _cookies_ sesi ke klien ketika sesi telah dimodifikasi atau dihapus.
 
-## 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai? ##
+## 4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada resiko potensial yang harus diwaspadai? ##
 
 Meskipun _cookies_ adalah fitur umum dalam pengembangan web, ada potensi risiko terkait penggunaannya yang harus diwaspadai oleh _developers_.
 
 - _Cyberattacks_: _Cookies_ dapat digunakan untuk mempertahankan serangan berbahaya seperti _cross-site scripting_ (XSS) atau _cross-site request forgery_ (CSRF).
 
-- Pembajakan: Tergantung pada bagaimana _cookies_ digunakan dan diekspos, _cookies_ dapat menimbulkan risiko keamanan yang serius. Misalnya, _cookies_ dapat dibajak, dan token sesi/autentikasi sensitif yang disimpan dalam _cookies_ dapat diambil oleh pelaku kejahatan, sehingga menyebabkan pencurian kredensial dan informasi identitas pribadi, serta penipuan kartu kredit.
+- Pembajakan: Tergantung pada bagaimana _cookies_ digunakan dan diekspos, _cookies_ dapat menimbulkan resiko keamanan yang serius. Misalnya, _cookies_ dapat dibajak, dan token sesi/autentikasi sensitif yang disimpan dalam _cookies_ dapat diambil oleh pelaku kejahatan, sehingga menyebabkan pencurian kredensial dan informasi identitas pribadi, serta penipuan kartu kredit.
 
 - Kebocoran data: Jika informasi dari _cookies_ jatuh ke tangan yang salah, data pengguna berisiko diretas, menjadi sasaran _ransomware_, dan aktivitas berbahaya lainnya.
 
@@ -567,7 +567,7 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
     from main.views import register
 ```
 
-  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
+  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatterns`untuk mengakses fungsi yang sudah di _import_
 
 ```python
     path('register/', register, name='register'),
@@ -654,7 +654,7 @@ Untuk mengurangi risiko ini, _developers_ dapat mengambil beberapa tindakan, sep
     from main.views import login_user
 ```
 
-  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatters`untuk mengakses fungsi yang sudah di _import_
+  Yang terakhir, kita tambahkan _path url_ ke dalam `urlpatterns`untuk mengakses fungsi yang sudah di _import_
 
 ```python
     path('login/', login_user, name='login'),
@@ -728,7 +728,7 @@ Selanjutnya, kita buka `view.py` di _folder_ `main` dan ubah potongan kode pada 
 
 **4. Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.**
 
-Pertama-tama, kita ubah fungsi `show_main` menjadi seperti di bawah dengan fungsi untuk menampilkan objek `Item` yang terasosiasikan dengan pengguna yang sedang login.
+Pertama-tama, kita ubah fungsi `show_main` menjadi seperti di bawah dengan fungsi untuk menampilkan objek `Item` yang diasosiasikan dengan pengguna yang sedang login.
 
 ```python
         def show_main(request):
@@ -748,13 +748,13 @@ Untuk menampilkan data _last login_, kita perlu meng-_import_ `datetime` di berk
         return response
 ```
 
-Selanjutnya, kita tambahkan `context` pada funsdi `show_main` dengan kode berikut:
+Selanjutnya, kita tambahkan `context` pada fungsi `show_main` dengan kode berikut:
 
 ```python
     'last_login': request.COOKIES['last_login'],
 ```
 
-Setelah itu untuk menghapus data cookie pengguna yang baru saja logout, kita tambahakan kode di fungsi `logout_user` dengan kode berikut:
+Setelah itu untuk menghapus data cookie pengguna yang baru saja logout, kita tambahkan kode di fungsi `logout_user` dengan kode berikut:
 
 ```python
 response = HttpResponseRedirect(reverse('main:login'))
@@ -850,17 +850,90 @@ Berikut adalah tampilan kedua akun yang telah saya buat dengan tombol-tombol yan
 
 ## 1.Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 
+CSS selectors digunakan untuk menargetkan elemen HTML yang perlu ditata pada webpage. Ada beragam CSS selectors yang tersedia, memungkinkan akurasi yang sangat baik saat memilih elemen. Berikut manfaat masing-masing pemilih elemen dan kapan waktu yang tepat untuk menggunakannya:
+
+1. **Element Selector**: Selector ini memilih elemen HTML berdasarkan namanya. Cocok digunakan ketika kita ingin menerapkan gaya ke semua elemen atau tag HTML tertentu. Misalnya, jika kita ingin meratakan tengah semua paragraf pada suatu webpage, kita dapat menggunakan kode berikut: `p { text-align: center; } `.
+
+2. **ID Selector**: Selector ini menggunakan atribut ID elemen HTML untuk memilih elemen tertentu. Cocok digunakan ketika kita ingin menerapkan _style_ ke satu elemen berbeda pada webpage. Karena ID harus unik, pilihan ini hanya boleh cocok dengan satu elemen. Misalnya, jika kita ingin menerapkan gaya ke div tertentu dengan ID "myDiv", kita dapat menggunakan kode berikut: `#myDiv { background-color: blue; }`.
+
+3. **Class Selector**: Selector ini memilih elemen dengan atribut _class_ tertentu. Cocok digunakan ketika kita ingin menerapkan _style_ ke banyak elemen dengan  _class_ yang sama.  Karena _class_ dapat digunakan lebih dari satu kali dalam satu halaman, pilihan ini dapat mencocokkan beberapa elemen. Misalnya, jika kita ingin menerapkan style ke semua elemen dengan _class_ "myClass", kita dapat menggunakan kode berikut: `.myClass { font-weight: bold; }`.
+
+4. **Attribute Selector**: Selector ini memilih elemen berdasarkan atribut atau _value_ suatu atribut. Cocok digunakan ketika ingin menerapkan _style_ pada elemen dengan atribut atau _value_ atribut tertentu. Misalnya, jika kita ingin menerapkan _style_ ke semua elemen input dengan tipe "teks", Anda dapat menggunakan kode berikut: `input[type="text"] { border: 1px solid black; }`
+
+5. **Pseudo-class Selector**: Selector ini memilih elemen berdasarkan _state_ tertentu. Cocok digunakan saat kita ingin menerapkan _style_ pada elemen berdasarkan statusnya, misalnya saat elemen tersebut diarahkan atau diklik. Misalnya, jika kita ingin menerapkan _style_ pada tautan saat tautan diarahkan, kita dapat menggunakan kode berikut: `a:hover { color: red; }`
+
+6. **Pseudo-element Selector**: Selector ini memilih dan memberi _style_ pada bagian elemen. Cocok digunakan ketika kita ingin menerapkan _style_ pada bagian tertentu dari suatu elemen, seperti huruf atau baris pertama. Misalnya, jika kita ingin menerapkan gaya pada huruf pertama paragraf, kita dapat menggunakan kode berikut: `p::first-letter { font-size: 200%; }`.
+
+7. **Combinator Selector**: Selector ini memilih elemen berdasarkan pada hubungannya satu sama lain. Cocok digunakan ketika kita ingin menerapkan suatu _style_ pada elemen yang mempunyai hubungan khusus dengan elemen lain, misalnya saat merupakan _child_ dari elemen lain. Misalnya, jika kita ingin menerapkan _style_ ke semua paragraf yang merupakan turunan dari div dengan ID "myDiv", kita dapat menggunakan kode berikut: `#myDiv p { color: green; }`.
+
+Secara keseluruhan, menggunakan selector yang tepat dapat mempermudah menargetkan elemen tertentu dan menerapkan _style_ secara efisien dan rapi.
+
 ## 2.Jelaskan HTML5 Tag yang kamu ketahui.
+
+Berikut adalah beberapa tag HTML5 saya ketahui:
+
+1. `<!DOCTYPE>`: Mendefinisikan tipe dokumen dan versi HTML.
+2. `<html>`: Mendefinisikan akar dari dokumen HTML.
+3. `<head>`: Berisi metadata/informasi untuk dokumen.
+4. `<body>`: Mendefinisikan tubuh dokumen.
+5. `<h1>` sampai `<h6>`: Mendefinisikan judul HTML.
+6. `<p>`: Mendefinisikan paragraf.
+7. `<br>`: Mendefinisikan jeda baris tunggal.
+8. `<a>`: Mendefinisikan hyperlink.
+9. `<img>`: Digunakan untuk menyisipkan gambar.
+10. `<table>`, `<tr>`, `<td>`: Digunakan untuk membuat tabel.
+11. `<div>`: Mendefinisikan bagian dalam dokumen.
+12. `<span>`: Digunakan untuk mengelompokkan elemen inline dalam dokumen.
+13. `<form>`: Mendefinisikan formulir HTML untuk input pengguna.
+14. `<input>`: Digunakan untuk input pengguna.
+15. `<button>`: Membuat tombol yang dapat diklik.
 
 ## 3.Jelaskan perbedaan antara margin dan padding.
 
+Dalam _web development_ and _design_, margin dan padding adalah dua konsep penting yang digunakan untuk menciptakan ruang antar elemen. Berikut adalah perbedaan utama antara margin dan padding:
+
+**Margin**
+- Menunjukkan ruang luar suatu elemen itu sendiri.
+- Mengontrol ruang di luar elemen dan menentukan cara elemen tersebut berinteraksi dengan komponen di sekitarnya atau tepi layar.
+- Dapat digunakan untuk memindahkan elemen ke atas atau ke bawah pada _webpage_ serta ke kiri atau ke kanan.
+- Sepenuhnya transparan, tanpa warna latar belakang.
+- Ukuran margin pada setiap sisi elemen dapat diubah satu per satu.
+- Mendorong elemen yang berdekatan untuk menciptakan celah.
+
+**Padding**
+- Menunjukkan ruang bagian dalam yang mengelilingi elemen.
+- Menentukan bagaimana elemen terlihat dan ditempatkan di dalam _container_.
+- Dapat digunakan untuk menciptakan ruang di dalam suatu elemen.
+- Nilainya bisa negatif atau bilangan _float_ apapun.
+- Dapat mengubah ukuran elemennya sendiri sehingga mempengaruhi seberapa banyak warna isian atau gambar latar belakang yang terlihat di dalam kotak.
+- Menggunakan padding untuk membuat celah akan memperbesar ukuran elemen atau memperkecil konten di dalamnya.
+
+Secara singkat, margin adalah ruang di luar suatu elemen, sedangkan padding adalah ruang di dalam suatu elemen. Memahami perbedaan antara margin dan padding sangat penting untuk merancang _layout_ dengan benar.
+
 ## 4.Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+
+Bootstrap dan Tailwind adalah dua kerangka CSS populer untuk membuat aplikasi web responsif dan _mobile-first_. Perbedaan utama antara keduanya adalah Bootstrap adalah _framework_ berbasis komponen yang menyediakan komponen yang sudah dibuat sebelumnya dan mencakup utilitas lain untuk _layer display_, spasi, dll. Disisi lain, Tailwind adalah _framework_ yang mengutamakan utilitas yang menawarkan opsi kustomisasi lebih besar dan dilengkapi dengan _widget_ yang telah dirancang sebelumnya yang dapat kita gunakan untuk membangun _webpage_ kita dari awal.
+
+Kapan sebaiknya menggunakan Bootstrap:
+- Jika kita memerlukan usaha yang sedikit yang harus diselesaikan dari pihak kita dan menyukai sebagian besar komponen/desain yang disediakan.
+- Jika kita menyukai desain Material, ini juga merupakan pilihan yang bagus.
+- Jika kita mencari solusi siap pakai dan konsisten yang mencakup sebagian besar skenario desain web.
+- Jika kita memprioritaskan _framework_ yang telah dicoba dan diuji dengan pendekatan sederhana.
+
+Kapan sebaiknya menggunakan Tailwind:
+- Jika kita ingin merancang antarmuka pengguna kita sendiri.
+- Jika kita ingin memiliki lebih banyak opsi kustomisasi.
+- Jika kita ingin membuat desain yang lebih fleksibel dan unik.
+- Jika kita ingin menghindari kerumitan menulis CSS.
+
+In conclusion, both frameworks are required in different niches. The choice of which framework to use depends on the specific needs of your project. If rapid development, creative control, and customization are paramount, Tailwind CSS shines as a powerful contender. Conversely, if you prioritize a tried-and-tested framework with a straightforward approach, Bootstrap may be the right fit.
+
+Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. Pilihan _framework_ mana yang akan digunakan tergantung pada kebutuhan spesifik proyek yang dibuat. Tailwind CSS unggul sebagai dalam hal _development_ cepat, kebebasan berkreasi, dan kustomisasi Sebaliknya, jika lebih menyukai _framework_ yang telah dicoba dan diuji dengan pendekatan yang jelas, Bootstrap mungkin merupakan pilihan yang tepat.
 
 ## 5.Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
-**Kustomisasi desain pada templat HTML yang telah dibuat pada Tugas 4 dengan menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut**
+**Kustomisasi desain pada _template_ HTML yang telah dibuat pada Tugas 4 dengan menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut**
 
 **1) Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.**
 
-**2) Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
-
+**2) Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan approach lain seperti menggunakan Card.**
