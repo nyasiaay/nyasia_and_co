@@ -934,5 +934,243 @@ Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. P
 
 **1) Kustomisasi halaman login, register, dan tambah inventori semenarik mungkin.**
 
+**Login**
+- Pertama-tama, saya meng-_import link font_ yang akan saya pakai
+
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/5db7abfd-566c-4a4f-996d-83fd6dbacfc6)
+
+- Selanjutnya saya menambahkan beberapa _style_ CSS yang akan saya pakai untuk lebih mengkustomisasi halaman login
+   ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/b46cc4a9-217a-41e0-99d7-f81e9f93f152)
+
+   `body` saya gunakan untuk mengubah warna _background webpage_ menjadi motif gradasi
+
+   `brand` untuk mengatur ukuran dan ketebalan teks nama aplikasi saya 
+
+   `background-container` untuk menambah kotak di belakang teks _login_
+
+   `center-container` untuk mengatur kotaknya agar berada di tengah _webpage_
+
+   `centered-text` untuk mengatur teks agar berada di _center_
+
+  `playfair` untuk mengatur ketebalan dan mengaplikasikan _font_ yang sebelumnya sudah di _import_
+
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/fc767fd0-a881-4021-b0a4-0f1b891d67bf)
+
+   `<div class="container">` digunakan untuk membuat wadah atau kontainer untuk mengatur _layout webpage_
+
+   `<div class="brand playfair">Nyasia & Co.</div>` untuk menambah nama aplikasi menggunakan _style brand_ dan _font playfair_
+
+  `<div class="row justify-content-center align-items-top min-vh-100">` =
+   - `row` digunakan untuk membuat baris di dalam kontainer.
+   - `justify-content-center` digunakan untuk mengatur konten di dalam baris agar berada di tengah secara horizontal.
+   - `align-items-top` digunakan untuk mengatur konten di dalam baris agar berada di bagian atas secara vertikal.
+   - `min-vh-100` digunakan untuk mengatur tinggi minimum div ini menjadi setidaknya 100% dari tinggi _viewport_ (tinggi jendela _browser_).
+
+   `<div class="col-md-6">` Ini adalah div lain yang digunakan untuk membuat kolom di dalam baris. `col-md-6` digunakan agar kolom ini akan memenuhi setengah lebar kontainer pada perangkat dengan ukuran layar menengah
+
+   `<div class="login background-container">` Kelas `login` digunakan untuk mengkategorikan elemen ini, sementara `background-container` digunakan untuk menambah kotak di belakang konten dengan _style_ CSS yang sudah dibuat
+
+   `<h1 class="centered-text">Login</h1>` adalah elemen _heading_ h1 berisi teks _Login_ dan diatur agar berada di tengah secara horizontal dalam div `background-container`.
+
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/28ad6f34-f08d-4c5e-8785-f974ec6091d1)
+
+   ```html
+   <div class="form-group mb-4">
+       <label for="username" class="pt-3 pb-2">Username:</label>
+       <input type="text" name="username" id="username" class="form-control" placeholder="Username">
+   </div>
+   ```
+   Ini adalah div untuk input username. Label ditampilkan dengan teks “Username:”, dan input bertipe teks. Atribut name dan id diatur ke “username”, dan placeholder diatur ke “Username”. Kelas "pt-3" dan "pb-2" digunakan untuk memberikan padding atas (pt-3) dan padding bawah (pb-2) kepada label.
+
+    ```html
+   <div class="form-group mb-4">
+       <label for="password" class="pb-2">Password:</label>
+       <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+   </div>
+    ```
+    Ini mirip dengan div sebelumnya, tetapi untuk input password. Input bertipe password, yang berarti _browser_ akan menyembunyikan nilai yang dimasukkan pengguna.
+
+   ```html
+   <div class="form-group mb-4 d-grid gap-2">
+       <button class="btn btn-primary login_btn" type="submit">
+           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+               <style>svg{fill:#ffffff}</style>
+               <path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"/>
+           </svg>
+            Login
+       </button>
+   </div>
+   ```
+   Ini adalah div untuk tombol submit. Tombol ini memiliki teks “Login” dan ikon SVG. Ketika ditekan, form akan dikirimkan.
+
+**Register**
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/61c191a9-af12-4204-b3ae-f47002049d17)
+
+  Pada halaman register, saya menggunakan _font_ dan _style_ CSS yang sama seperti halaman Login.
+
+   `body` saya gunakan untuk mengubah warna _background webpage_ menjadi motif gradasi
+
+   `brand` untuk mengatur ukuran dan ketebalan teks nama aplikasi saya 
+
+   `background-container` untuk menambah kotak di belakang teks _login_
+
+   `center-container` untuk mengatur kotaknya agar berada di tengah _webpage_
+
+   `centered-text` untuk mengatur teks agar berada di _center_
+
+  `playfair` untuk mengatur ketebalan dan mengaplikasikan _font_ yang sebelumnya sudah di _import_
+
+
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/216d86dd-8335-4561-88ad-67b5647354de)
+
+   `<div class="container">` adalah div pembungkus dengan class “container”. Digunakan untuk mengatur lebar dan margin konten utama.
+
+   `<div class="brand playfair">Nyasia & Co.</div>` untuk menambah nama aplikasi menggunakan _style brand_ dan _font playfair_
+
+   `<div class="row justify-content-center align-items-top min-vh-100">` =
+
+   - `row` digunakan untuk membuat baris di dalam kontainer.
+   - `justify-content-center` digunakan untuk mengatur konten di dalam baris agar berada di tengah secara horizontal.
+   - `align-items-top` digunakan untuk mengatur konten di dalam baris agar berada di bagian atas secara vertikal.
+   - `min-vh-100` digunakan untuk mengatur tinggi minimum div ini menjadi setidaknya 100% dari tinggi _viewport_ (tinggi jendela _browser_).
+
+   `<div class="col-md-6">` Ini adalah div lain yang digunakan untuk membuat kolom di dalam baris. `col-md-6` digunakan agar kolom ini akan memenuhi setengah lebar kontainer pada perangkat dengan ukuran layar menengah
+
+   `<div class="login background-container">` Kelas `login` digunakan untuk mengkategorikan elemen ini, sementara `background-container` digunakan untuk menambah kotak di belakang konten dengan _style_ CSS yang sudah dibuat
+
+   `<h1 class="centered-text">Register</h1>` adalah elemen _heading_ h1 berisi teks _Register_ dan diatur agar berada di tengah secara horizontal dalam div `background-container`.
+
+   ```html
+   <table>
+       {{ form.as_table }}
+   ```
+   Ini adalah tabel yang akan diisi dengan form. `{{ form.as_table }}` adalah template tag Django yang akan menghasilkan baris tabel untuk setiap field dalam form.
+
+   ```html
+   <tr>
+       <td></td>
+       <td class="d-grid gap-2">
+           <button type="submit" name="submit" class="btn btn-primary mt-4">
+               <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512">
+                   <style>svg{fill:#ffffff}</style>
+                   <path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM504 312V248H440c-13.3 0-24-10.7-24-24s10.7-24 24-24h64V136c0-13.3 10.7-24 24-24s24 10.7 24 24v64h64c13.3 0 24 10.7 24 24s-10.7 24-24 24H552v64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/>
+               </svg>
+               Register
+           </button>
+       </td>
+   </tr>
+   ```
+   Ini adalah baris tabel yang berisi tombol “Register”. Tombol ini memiliki ikon SVG dan akan mengirimkan form ketika ditekan.
+
+**Add Item**
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/a6a5a7e0-67d1-44ae-b558-8be839babed7)
+
+  Pada berkas `create_product.html` saya menggunakan menggunakan _font_ dan _style_ CSS yang sama seperti halaman Login dan Register.
+
+   `body` saya gunakan untuk mengubah warna _background webpage_ menjadi motif gradasi
+
+   `brand` untuk mengatur ukuran dan ketebalan teks nama aplikasi saya 
+
+   `background-container` untuk menambah kotak di belakang teks _login_
+
+   `center-container` untuk mengatur kotaknya agar berada di tengah _webpage_
+
+   `centered-text` untuk mengatur teks agar berada di _center_
+
+  `playfair` untuk mengatur ketebalan dan mengaplikasikan _font_ yang sebelumnya sudah di _import_
+
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/99e368c3-3fa9-4004-8af6-41acdd2c89d4)
+
+   `<div class="container">` adalah div pembungkus dengan class “container”. Digunakan untuk mengatur lebar dan margin konten utama.
+
+   `<div class="brand playfair">Nyasia & Co.</div>` untuk menambah nama aplikasi menggunakan _style brand_ dan _font playfair_
+
+   `<div class="row justify-content-center align-items-top min-vh-100">` =
+
+   - `row` digunakan untuk membuat baris di dalam kontainer.
+   - `justify-content-center` digunakan untuk mengatur konten di dalam baris agar berada di tengah secara horizontal.
+   - `align-items-top` digunakan untuk mengatur konten di dalam baris agar berada di bagian atas secara vertikal.
+   - `min-vh-100` digunakan untuk mengatur tinggi minimum div ini menjadi setidaknya 100% dari tinggi _viewport_ (tinggi jendela _browser_).
+
+   `<div class="col-md-6">` Ini adalah div lain yang digunakan untuk membuat kolom di dalam baris. `col-md-6` digunakan agar kolom ini akan memenuhi setengah lebar kontainer pada perangkat dengan ukuran layar menengah
+
+   `<div class="background-container">` digunakan untuk menambah kotak di belakang konten dengan _style_ CSS yang sudah dibuat
+
+   `<h1 class="centered-text">Add New Product</h1>` adalah elemen _heading_ h1 berisi teks _Register_ dan diatur agar berada di tengah secara horizontal dalam div `background-container`.
+
+   ```html
+   <table>
+       {{ form.as_table }}
+   ```
+   Ini adalah tabel yang akan diisi dengan form. `{{ form.as_table }}` adalah template tag Django yang akan menghasilkan baris tabel untuk setiap field dalam form.
+
+   ```html
+   <tr>
+       <td></td>
+       <td class="form-group mt-2 mb-4 d-grid gap-2">
+           <input type="submit" value="Add Product" class="btn btn-primary"/>
+       </td>
+   </tr>
+   ```
+   Ini adalah baris tabel yang berisi tombol “Add Product”. Tombol ini akan mengirimkan form ketika ditekan.
+
+**Edit Product**
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/2d36074c-1e48-46c4-85fb-436425e38c0d)
+
+  Pada berkas `create_product.html` saya menggunakan menggunakan _font_ dan _style_ CSS yang sama seperti halaman Login, Register, dan Add Product.
+
+   `body` saya gunakan untuk mengubah warna _background webpage_ menjadi motif gradasi
+
+   `brand` untuk mengatur ukuran dan ketebalan teks nama aplikasi saya 
+
+   `background-container` untuk menambah kotak di belakang teks _login_
+
+   `center-container` untuk mengatur kotaknya agar berada di tengah _webpage_
+
+   `centered-text` untuk mengatur teks agar berada di _center_
+
+  `playfair` untuk mengatur ketebalan dan mengaplikasikan _font_ yang sebelumnya sudah di _import_
+
+- ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/50345e37-27ec-43da-9399-4a46237dc90f)
+
+   `<div class="container">` adalah div pembungkus dengan class “container”. Digunakan untuk mengatur lebar dan margin konten utama.
+
+   `<div class="brand playfair">Nyasia & Co.</div>` untuk menambah nama aplikasi menggunakan _style brand_ dan _font playfair_
+
+   `<div class="row justify-content-center align-items-top min-vh-100">` =
+
+   - `row` digunakan untuk membuat baris di dalam kontainer.
+   - `justify-content-center` digunakan untuk mengatur konten di dalam baris agar berada di tengah secara horizontal.
+   - `align-items-top` digunakan untuk mengatur konten di dalam baris agar berada di bagian atas secara vertikal.
+   - `min-vh-100` digunakan untuk mengatur tinggi minimum div ini menjadi setidaknya 100% dari tinggi _viewport_ (tinggi jendela _browser_).
+
+   `<div class="col-md-6">` Ini adalah div lain yang digunakan untuk membuat kolom di dalam baris. `col-md-6` digunakan agar kolom ini akan memenuhi setengah lebar kontainer pada perangkat dengan ukuran layar menengah
+
+   `<div class="background-container">` digunakan untuk menambah kotak di belakang konten dengan _style_ CSS yang sudah dibuat
+
+   `<h1 class="centered-text mb-4">Edit Product</h1>` adalah elemen _heading_ h1 berisi teks _Register_ dan diatur agar berada di tengah secara horizontal dalam div `background-container`.
+
+   ```html
+   <table>
+       {{ form.as_table }}
+   ```
+   Ini adalah tabel yang akan diisi dengan form. `{{ form.as_table }}` adalah template tag Django yang akan menghasilkan baris tabel untuk setiap field dalam form.
+
+   ```html
+   <tr>
+               <td></td>
+               <td class="form-group mt-2 d-grid gap-2">
+                   <button type="submit" class="btn btn-primary">
+                       <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+                           <style>svg{fill:#ffffff}</style>
+                           <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/>
+                       </svg>
+                       Edit Product
+                   </button>
+               </td>            
+           </tr>
+   ```
+   Ini adalah baris tabel yang berisi tombol “Edit Product”. Tombol ini memiliki ikon SVG dan akan mengirimkan form ketika ditekan.
+
 **2) Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
 
