@@ -1174,3 +1174,116 @@ Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. P
 
 **2) Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
 
+Untuk halaman daftar inventori, pertama-tama saya _import_ terlebih dahulu _font_ yang akan saya pakai
+```html
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap" rel="stylesheet">
+```
+
+Selanjutnya saya menambahkan _style_ CSS yang akan saya pakai di halaman ini
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/3120cc0c-5fcc-4359-9d90-6f6c96787b04)
+
+```html
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+```
+Ini mengatur tinggi elemen html dan body menjadi 100%, dan menghapus margin dan padding.
+
+```html
+body {
+    background: linear-gradient(125deg, #ECFCFF 0%, #ECFCFF 40%, #B2FCFF calc(40% + 1px), #B2FCFF 60%, #5EDFFF calc(60% + 1px), #5EDFFF 72%, #3E64FF calc(72% + 1px), #3E64FF 100%);
+}
+```
+Ini mengatur latar belakang body menjadi gradien linear dengan berbagai warna.
+
+```html
+.custom-padding {
+    padding-right: 10px;
+}
+```
+Class ini menambahkan padding sebesar 10px ke kanan elemen.
+
+```html
+.playfair {
+    font-family: 'Playfair Display', serif;
+    font-weight: bold;
+}
+```
+Class ini mengatur font elemen menjadi ‘Playfair Display’ dan tebal.
+
+```html
+.noto-serif {
+    font-family: 'Noto Serif', serif;
+}
+```
+Class ini mengatur font elemen menjadi ‘Noto Serif’.
+
+```html
+.name-class {
+    margin-right: 10px;
+}
+```
+Class ini menambahkan margin sebesar 10px ke kanan elemen.
+
+```html
+.background-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+```
+Class ini mengatur latar belakang elemen menjadi putih, memberikan border radius dan bayangan, dan menambahkan padding sebesar 20px.
+
+```html
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+```
+Ini mengatur lebar tabel menjadi 100% dan menggabungkan border sel tabel.
+
+```html
+table, th, td {
+    border: 1.5px solid #dedddd;
+    vertical-align: middle;
+    padding: 10px;
+    font-weight: 600;
+}
+```
+Ini mengatur border, penjajaran vertikal, padding, dan berat font untuk tabel, th, dan td.
+
+```html
+th {
+    background-color: #151414;
+    color: #f7f7f7;
+    text-align: center;
+    font-weight: bold;
+}
+```
+Ini mengatur latar belakang, warna teks, penjajaran teks, dan berat font untuk elemen th.
+
+```html
+td {
+    vertical-align: top;
+}
+```
+Ini mengatur penjajaran vertikal elemen td menjadi atas.
+
+```html
+tr{
+    background-color: #f2f2f2;
+}
+```
+Ini mengatur latar belakang elemen tr menjadi #f2f2f2.
+
+```html
+tr:last-child {
+    background-color: #a3e4d9;
+}
+```
+Ini mengatur latar belakang elemen tr terakhir menjadi #a3e4d9.
+
