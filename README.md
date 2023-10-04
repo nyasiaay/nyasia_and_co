@@ -1287,3 +1287,181 @@ tr:last-child {
 ```
 Ini mengatur latar belakang elemen tr terakhir menjadi #a3e4d9.
 
+Selanjutnya saya mengatur nav-bar dan elemen di atas tabel
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/06b7d97e-f8c2-4e3b-8e5f-8701c4de293e)
+
+```html
+<nav class="navbar navbar-expand-lg">
+```
+Ini adalah tag pembuka navigasi. Class “navbar” dan “navbar-expand-lg” digunakan dalam Bootstrap untuk membuat navbar responsif.
+
+```html
+<span class="navbar-brand mb-0 h1 playfair" href="#" style="padding-left: 10px; padding-right: 10px;"><strong>Nyasia & Co.</strong></span>
+```
+Ini adalah elemen span yang berfungsi sebagai brand navbar. Class “navbar-brand”, “mb-0”, dan “h1” digunakan untuk styling. Class “playfair” untuk mengaplikasikan _font_ yang telah di _import_. Padding ditambahkan ke kiri dan kanan elemen.
+
+```html
+<ul class="navbar-nav ml-auto">
+```
+Ini adalah tag pembuka unordered list (ul). Class “navbar-nav” digunakan untuk styling elemen navigasi dalam navbar. Class “ml-auto” digunakan untuk mendorong elemen ke kanan navbar.
+
+```html
+<li class="nav-item">
+```
+Ini adalah tag pembuka list item (li). Class “nav-item” digunakan untuk styling item navigasi.
+
+```html
+<span class="navbar-text">
+    <div class="name-class noto-serif">
+        <b>Welcome, {{ name }}</b>
+    </div>
+</span>
+```
+Ini adalah elemen span yang berisi teks navigasi. Di dalamnya ada div dengan teks “Welcome, {{ name }}”. “{{ name }}” adalah placeholder yang akan digantikan dengan nama pengguna. 
+
+```html
+<ul class="navbar-nav ml-auto col d-flex justify-content-end custom-padding">
+```
+Ini adalah tag pembuka unordered list (ul). Class “navbar-nav” digunakan untuk styling elemen navigasi dalam navbar. Class “ml-auto” digunakan untuk mendorong elemen ke kanan navbar. Class “col”, “d-flex”, “justify-content-end”, dan “custom-padding” digunakan untuk styling tambahan.
+
+```html
+<li class="nav-item">
+```
+Ini adalah tag pembuka list item (li). Class “nav-item” digunakan untuk styling item navigasi.
+
+```html
+<div class="mr-auto pr-2 ">
+```
+Ini adalah div dengan class “mr-auto” dan “pr-2”. Class ini digunakan untuk styling, seperti mengatur margin dan padding.
+
+```html
+<a class="btn btn-danger " href="{% url 'main:logout' %}">
+```
+Ini adalah tag pembuka link (a). Class “btn” dan “btn-danger” digunakan untuk styling tombol. Atribut `href="{% url 'main:logout' %}"` digunakan untuk mengarahkan ke URL logout saat tombol diklik.
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><style>svg{fill:#ffffff}</style><path d="M497 273L329 441c-15 15-41 4.5-41-17v-96H152c-13.3 0-24-10.7-24-24v-96c0-13.3 10.7-24 24-24h136V88c0-21.4 25.9-32 41-17l168 168c9.3 9.4 9.3 24.6 0 34zM192 436v-40c0-6.6-5.4-12-12-12H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h84c6.6 0 12-5.4 12-12V76c0-6.6-5.4-12-12-12H96c-53 0-96 43-96 96v192c0 53 43 96 96 96h84c6.6 0 12-5.4 12-12z"/></svg>
+   Logout
+</a>
+```
+Tombol berisi teks "Logout" dan ikon svg
+
+Selanjutnya saya menambahkan judul dan teks jumlah produk yang disimpan
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/3b4941a2-34be-415b-b0b5-ffbbcffc1283)
+
+```html
+<div class="container mt-5 background-container">
+```
+Ini adalah div pembungkus dengan class “container”, “mt-5”, dan “background-container”. Class “container” biasanya digunakan untuk mengatur lebar dan margin konten utama. Class “mt-5” digunakan untuk memberikan margin atas, dan “background-container” untuk menambahkan kotak di belakang konten.
+
+```html
+<h1 class="playfair mb-3">Nyasia & Co.</h1>
+```
+Ini adalah heading level 1 dengan teks “Nyasia & Co.”. Class “playfair” untuk mengaplikasikan _font_, dan “mb-3” digunakan untuk mengatur margin bawah.
+
+```html
+<p class="noto-serif">You have saved <b>{{ items_count }}</b> items in this app</p>
+```
+Ini adalah paragraf dengan teks “You have saved {{ items_count }} items in this app”. “{{ items_count }}” adalah placeholder yang akan digantikan dengan jumlah item yang disimpan pengguna. Class “noto-serif” untuk mengubah _font_.
+
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/127328f3-77bd-4569-bd55-6512016f01c3)
+
+```html
+<table>
+   <thead>
+      <tr>
+```
+Ini adalah tag pembuka tabel, thead, yang digunakan untuk mengelompokkan konten header dalam tabel, dan baris tabel (tr)
+
+```html
+<th>Name</th>
+<th class="col-1">Amount</th>
+<th>Description</th>
+<th class="col-1">Actions</th>
+```
+Ini adalah elemen header tabel (th) dengan teks “Name”, “Amount”, “Description”, dan “Actions”. Class “col-1” digunakan untuk mengatur lebar kolom.
+
+```html
+<tbody class="table-group-divider last-table">
+```
+Ini adalah tag pembuka tbody, yang digunakan untuk mengelompokkan konten utama dalam tabel. Class `last-table` digunakan untuk mengubah warna baris terakhir pada tabel.
+
+```html
+<td>{{ product.name }}</td>
+```
+Ini adalah elemen data tabel (td) yang berisi “{{ product.name }}”. “{{ product.name }}” adalah placeholder yang akan digantikan dengan nama produk.
+
+```html
+<td>
+    <div class="d-flex justify-content-between">
+```
+Ini adalah elemen data tabel lainnya yang berisi div. Class “d-flex” dan “justify-content-between” digunakan untuk mengatur layout dan penjajaran elemen dalam div.
+
+```html
+<a href="{% url 'main:add_amount' product.id %}" class="btn btn-outline-secondary btn-sm mr-4">
+    <b>+</b>
+</a>
+```
+Ini adalah link (a) dengan teks “+”. Atribut `href="{% url 'main:add_amount' product.id %}"` digunakan untuk mengarahkan ke URL untuk menambah jumlah produk saat link diklik. Class “btn”, “btn-outline-secondary”, “btn-sm”, dan “mr-4” digunakan untuk styling.
+
+```html
+{{ product.amount }}
+```
+Ini adalah placeholder “{{ product.amount }}” yang akan digantikan dengan jumlah produk.
+
+```html
+<a href="{% url 'main:minus_amount' product.id %}" class="btn btn-outline-secondary btn-sm ml-4">
+    <b>-</b>
+</a>
+```
+Ini mirip dengan link sebelumnya, tetapi digunakan untuk mengurangi jumlah produk.
+
+```html
+<td>{{ product.description }}</td>
+```
+Ini adalah elemen data tabel lainnya yang berisi “{{ product.description }}”. “{{ product.description }}” adalah placeholder yang akan digantikan dengan deskripsi produk.
+
+```html
+<td class="text-center">
+```
+Ini adalah elemen data tabel (td) dengan class “text-center” yang digunakan untuk memusatkan teks dalam elemen.
+
+```html
+<a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary btn-sm">
+```
+Ini adalah tag pembuka link (a). Atribut `href="{% url 'main:edit_product' product.pk %}"` digunakan untuk mengarahkan ke URL untuk mengedit produk saat link diklik. Class “btn”, “btn-primary”, dan “btn-sm” digunakan untuk styling.
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
+    <style>svg{fill:#ffffff}</style>
+    <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/>
+</svg>
+```
+Ini adalah ikon SVG yang akan ditampilkan pada tombol. Ikon ini digunakan untuk melambangkan aksi edit.
+
+```html
+<a href="{% url 'main:delete_item' product.pk %}" class="btn btn-danger btn-sm">
+```
+Ini adalah tag pembuka link lainnya. Atribut `href="{% url 'main:delete_item' product.pk %}"` digunakan untuk mengarahkan ke URL untuk menghapus produk saat link diklik. Class “btn”, “btn-danger”, dan “btn-sm” digunakan untuk styling.
+
+```html
+<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+    <style>svg{fill:#ffffff}</style>
+    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+</svg>
+```
+Ini adalah ikon SVG lainnya yang akan ditampilkan pada tombol. Ikon ini digunakan untuk melambangkan aksi hapus.
+
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/92c42092-c9fc-4aff-9a6e-42b77ff214b4)
+
+```html
+<h5 class="mt-4 noto-serif"><strong>Last login session: {{ last_login }}</strong></h5>
+```
+Ini adalah heading level 5 dengan teks “Last login session: {{ last_login }}”. “{{ last_login }}” adalah placeholder yang akan digantikan dengan waktu login terakhir pengguna. Class “mt-4” digunakan untuk memberikan margin atas, dan “noto-serif” untuk mengganti font.
+
+```html
+<a href="{% url 'main:create_product' %}" class="btn btn-success mt-2">
+    Add New Product
+</a>
+```
+Ini adalah link (a) dengan teks “Add New Product”. Atribut `href="{% url 'main:create_product' %}"` digunakan untuk mengarahkan ke URL untuk membuat produk baru saat link diklik. Class “btn”, “btn-success”, dan “mt-2” digunakan untuk styling.
