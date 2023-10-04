@@ -25,7 +25,6 @@ def show_main(request):
     'class': 'PBP E',
     'products': products,
     'last_login': request.COOKIES['last_login'],
-    'items': products,
     'items_count': items_count
 }
 
