@@ -1003,6 +1003,9 @@ Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. P
    ```
    Ini adalah div untuk tombol submit. Tombol ini memiliki teks “Login” dan ikon SVG. Ketika ditekan, form akan dikirimkan.
 
+Berikut adalah hasil akhir halaman Login saya
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/5927409d-488c-4683-bb18-3bffcda650f1)
+
 **Register**
 - ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/61c191a9-af12-4204-b3ae-f47002049d17)
 
@@ -1062,6 +1065,9 @@ Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. P
    ```
    Ini adalah baris tabel yang berisi tombol “Register”. Tombol ini memiliki ikon SVG dan akan mengirimkan form ketika ditekan.
 
+Berikut adalah hasil akhir halaman register saya
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/3eef9e01-9883-4f1b-a302-8ea7c1ff4c02)
+
 **Add Item**
 - ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/a6a5a7e0-67d1-44ae-b558-8be839babed7)
 
@@ -1113,6 +1119,9 @@ Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. P
    </tr>
    ```
    Ini adalah baris tabel yang berisi tombol “Add Product”. Tombol ini akan mengirimkan form ketika ditekan.
+
+Berikut adalah hasil akhir halaman add product saya 
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/15704a94-cef5-4bfd-8bec-834fa079d805)
 
 **Edit Product**
 - ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/2d36074c-1e48-46c4-85fb-436425e38c0d)
@@ -1171,6 +1180,9 @@ Kesimpulannya, kedua _framework_ tersebut diperlukan dalam wadah yang berbeda. P
            </tr>
    ```
    Ini adalah baris tabel yang berisi tombol “Edit Product”. Tombol ini memiliki ikon SVG dan akan mengirimkan form ketika ditekan.
+
+Berikut adalah hasil akhir halaman edit product saya
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/2c103e0d-003f-4dab-b09d-3d0f0473d41b)
 
 **2) Kustomisasi halaman daftar inventori menjadi lebih berwarna maupun menggunakan apporach lain seperti menggunakan Card.**
 
@@ -1466,3 +1478,6 @@ Ini adalah heading level 5 dengan teks “Last login session: {{ last_login }}�
 </a>
 ```
 Ini adalah link (a) dengan teks “Add New Product”. Atribut `href="{% url 'main:create_product' %}"` digunakan untuk mengarahkan ke URL untuk membuat produk baru saat link diklik. Class “btn”, “btn-success”, dan “mt-2” digunakan untuk styling.
+
+Berikut adalah hasil akhir halaman daftar inventori saya
+![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/06d33605-f543-42a5-9ca4-4ae235041018)
