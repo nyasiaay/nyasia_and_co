@@ -858,7 +858,7 @@ CSS selectors digunakan untuk menargetkan elemen HTML yang perlu ditata pada web
 
 3. **Class Selector**: Selector ini memilih elemen dengan atribut _class_ tertentu. Cocok digunakan ketika kita ingin menerapkan _style_ ke banyak elemen dengan  _class_ yang sama.  Karena _class_ dapat digunakan lebih dari satu kali dalam satu halaman, pilihan ini dapat mencocokkan beberapa elemen. Misalnya, jika kita ingin menerapkan style ke semua elemen dengan kelas "myClass", kita dapat menggunakan kode berikut: `.myClass { font-weight: bold; }`.
 
-4. **Attribute Selector**: Selector ini memilih elemen berdasarkan atribut atau _value_ suatu atribut. Cocok digunakan ketika ingin menerapkan _style_ pada elemen dengan atribut atau _value_ atribut tertentu. Misalnya, jika kita ingin menerapkan _style_ ke semua elemen input dengan tipe "teks", Anda dapat menggunakan kode berikut: `input[type="text"] { border: 1px solid black; }`
+4. **Attribute Selector**: Selector ini memilih elemen berdasarkan atribut atau _value_ suatu atribut. Cocok digunakan ketika ingin menerapkan _style_ pada elemen dengan atribut atau _value_ atribut tertentu. Misalnya, jika kita ingin menerapkan _style_ ke semua elemen input dengan tipe "teks", kita dapat menggunakan kode berikut: `input[type="text"] { border: 1px solid black; }`
 
 5. **Pseudo-class Selector**: Selector ini memilih elemen berdasarkan _state_ tertentu. Cocok digunakan saat kita ingin menerapkan _style_ pada elemen berdasarkan statusnya, misalnya saat elemen tersebut diarahkan atau diklik. Misalnya, jika kita ingin menerapkan _style_ pada tautan saat tautan diarahkan, kita dapat menggunakan kode berikut: `a:hover { color: red; }`
 
@@ -1466,3 +1466,238 @@ Ini adalah heading level 5 dengan teks “Last login session: {{ last_login }}�
 </a>
 ```
 Ini adalah link (a) dengan teks “Add New Product”. Atribut `href="{% url 'main:create_product' %}"` digunakan untuk mengarahkan ke URL untuk membuat produk baru saat link diklik. Class “btn”, “btn-success”, dan “mt-2” digunakan untuk styling.
+
+# Tugas 5
+
+## 1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+
+**Asynchronous Programming** adalah pendekatan pemrograman yang memungkinkan beberapa proses berjalan secara bersamaan. Dalam pendekatan ini, proses jalannya program bisa dilakukan secara bersamaan tanpa harus menunggu proses antrian. Asynchronous programming melakukan pekerjaannya tanpa harus terikat dengan proses lain atau dapat kita sebut secara Independent. Dalam proses asynchronous, kita tidak perlu menunggu suatu fungsi selesai dijalankan untuk menjalankan fungsi lainnya (_non-blocking_).
+
+Di sisi lain, **Synchronous Programming** adalah pendekatan yang lebih "jadul". Dalam pendekatan ini, _task_ akan dieksekusi satu persatu sesuai dengan urutan dan prioritas task. Synchronous adalah proses jalannya program secara sequential, disini yang dimaksud sequential ada berdasarkan antrian ekseskusi program. Pada proses synchronous setiap fungsi dijalankan berurutan, untuk dapat menjalankan fungsi berikutnya maka kita harus menunggu fungsi sebelumnya selesai (_blocking_).
+
+## 2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+
+Paradigma event-driven programming adalah paradigma pemrograman di mana alur program ditentukan oleh peristiwa seperti input pengguna, sensor output, atau pesan dari program lain. Peristiwa ini biasanya dipicu oleh aksi pengguna seperti klik mouse, ketukan keyboard, atau interaksi lainnya dengan antarmuka pengguna.
+
+Dalam konteks JavaScript dan AJAX, event-driven programming memungkinkan kita untuk membuat aplikasi yang responsif dan interaktif. Kode dieksekusi berdasarkan peristiwa tertentu, bukan urutan tertentu.
+
+Contoh penerapan pada tugas ini adalah Tombol "Add Product by AJAX". Tombol ini menggunakan atribut `data-bs-toggle` dan `data-bs-target` untuk menghubungkannya dengan elemen modal dengan ID exampleModal. Ketika tombol ini diklik, itu akan memicu tampilan modal.
+
+## 3. Jelaskan penerapan asynchronous programming pada AJAX.
+
+AJAX (Asynchronous Javascript and XML) adalah teknologi yang memungkinkan aplikasi web untuk bekerja secara asynchronous. Dalam konteks AJAX, asynchronous programming memungkinkan aplikasi web untuk mengirim dan menerima data dari server tanpa harus mereload keseluruhan halaman. 
+
+Misalnya, ketika pengguna melakukan sebuah event atau permintaan ke server, event tersebut akan ditampung oleh mesin AJAX. Mesin AJAX ini akan menampung semua event dari pengguna dan melakukan transfer data. Data ini kemudian diproses secara server-side dengan metode asynchronous. 
+
+Sehingga, pertukaran data dengan server tidak tergantung pada input pengguna. Dengan demikian, antarmuka pengguna dapat diperbarui sesuai kebutuhan sepotong demi sepotong tanpa harus mereload keseluruhan halaman. Ini membuat aplikasi web menjadi lebih responsif, lebih cepat dan lebih ramah pengguna.
+
+## 4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+
+Fetch API dan jQuery AJAX keduanya memiliki kelebihan dan kekurangan masing-masing. Fetch API adalah teknologi yang lebih baru dan dibangun berdasarkan Promises, yang sekarang menjadi cara yang disukai untuk melakukan operasi asynchronous dalam JavaScript. Fetch API memungkinkan kita untuk meminta layanan ke endpoint URL dan mengambil respons. Di sisi lain, jQuery AJAX adalah library yang menyederhanakan fungsi AJAX. Kelebihan utama jQuery adalah cross-compatibility dan kode yang sangat matang dari polyfillnya. Namun, perlu diperhatikan bahwa Fetch API tidak akan menolak pada status error HTTP meski respons adalah HTTP 404 atau 500. Sebaliknya, itu akan menyelesaikan secara normal (dengan status ok diatur ke false), dan hanya akan menolak jika ada kegagalan jaringan atau jika ada hal yang mencegah permintaan dari selesai. Jadi, pilihan antara Fetch API dan jQuery AJAX sebenarnya tergantung pada kebutuhan spesifik proyek kita. Jika kita membutuhkan kompatibilitas lintas browser yang lebih baik dan fungsi yang disederhanakan, jQuery mungkin menjadi pilihan yang baik. Namun, jika kita lebih suka bekerja dengan Promises dan tidak keberatan dengan perilaku error handling Fetch API, maka Fetch API bisa menjadi pilihan yang lebih baik.
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
+**1. AJAX GET**
+
+- **Ubahlah kode cards data item agar dapat mendukung AJAX GET.**
+   1) Pada berkas `main.html` hapus terlebih dahulu kode table/cards yang sudah ada
+   2) Lalu, tambahkan kode ini agar menjadi struktur card-nya
+        ```html
+        <div id="product_cards" class="row mt-3"></div>
+        ```
+   3) Tambahkan kode di bawah ini untuk mengimplementasikan modal
+        ```html
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" name="name"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="amount" class="col-form-label">Amount:</label>
+                                <input type="number" class="form-control" id="amount" name="amount"></input>
+                            </div>
+                            <div class="mb-3">
+                                <label for="description" class="col-form-label">Description:</label>
+                                <textarea class="form-control" id="description" name="description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        ```
+- **Lakukan pengambilan task menggunakan AJAX GET.**
+   1) Pertama-tama kita buat fungsi baru pada `views.py` dengan nama `get_product_json` yang menerima parameter `request` berisi sebagai berikut dan pastikan juga melakukan routing url ke berkas `urls.py`
+        ```python
+        def get_product_json(request):
+        product_item = Product.objects.all()
+        return HttpResponse(serializers.serialize('json', product_item))
+        ```
+    2) Membuat block `<script>` di paling bawah kode dan membuat fungsi `getProducts()` untuk mengambil data produk yang berisi sebagai berikut
+        ```html
+        <script>
+            async function getProducts() {
+                return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+            }
+        </script>
+        ```
+
+**2. AJAX POST**
+
+- **Buatlah sebuah tombol yang membuka sebuah modal dengan form untuk menambahkan item.**
+   1) Pertama-tama saya membuat tombol yang membuka sebuah modal dengan form untuk menambahkan item
+        ```html
+            <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
+        ```
+    2) Lalu, saya tambahkan modal dengan form untuk menambahkan item
+        ```html
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="form" onsubmit="return false;">
+                ...
+        ```
+
+- **Buatlah fungsi view baru untuk menambahkan item baru ke dalam basis data.**
+
+   1) Pertama-tama buat melakukan import pada berkas `views.py`
+        ```python 
+        from django.views.decorators.csrf import csrf_exempt
+        from django.http import HttpResponseNotFound
+        ```
+   2) Lalu buat fungsi baru dengan nama `add_product_ajax` terlebih dahulu di berkas `views.py` dengan isi kode sebagai berikut:
+        ```python
+            @csrf_exempt
+            def add_product_ajax(request):
+                if request.method == 'POST':
+                    name = request.POST.get("name")
+                    amount = request.POST.get("amount")
+                    description = request.POST.get("description")
+                    user = request.user
+
+                    new_product = Item(name=name, amount=amount, description=description, user=user)
+                    new_product.save()
+
+                    return HttpResponse(b"CREATED", status=201)
+
+                return HttpResponseNotFound()
+        ```
+    3) Setelah itu, buat fungsi baru pada block `<script` dengan nama `addProduct` berisi kode sebagai berikut:
+        ```javascript
+        function addProduct() {
+            fetch("{% url 'main:add_product_ajax' %}", {
+                method: "POST",
+                body: new FormData(document.querySelector('#form'))
+            }).then(refreshProducts)
+
+            document.getElementById("form").reset()
+            return false
+        }
+        document.getElementById("button_add").onclick = addProduct
+    ```
+- **Buatlah path /create-ajax/ yang mengarah ke fungsi view yang baru kamu buat.**
+
+    Kita buka berkas `urls.py` pada direktori `main` lalu import fungsi `get_products_json` dan `add_product_json`
+    ```python
+    from main.views import get_products_json, add_product_json
+    ```
+
+- **Hubungkan form yang telah kamu buat di dalam modal kamu ke path /create-ajax/.**
+
+    Tambahkan _path_ url fungsi `get_products_json` dan `add_product_json` ke `urlpatterns`
+    ```python
+    path('get-product/', get_product_json, name='get_product_json'),
+    path('create-product-ajax/', add_product_ajax, name='add_product_ajax'),
+    ```
+
+- **Lakukan refresh pada halaman utama secara asinkronus untuk menampilkan daftar item terbaru tanpa reload halaman utama secara keseluruhan.**
+    1) Kita buka kembali berkas `main.html` pada direktori `templates` dan membuat fungsi baru pada block `<script>` dengan nama `refreshProducts` berisi kode sebagai berikut:
+        ```javascript
+            async function refreshProducts() {
+            document.getElementById("product_cards").innerHTML = ""
+            const products = await getProducts()
+            products.forEach((product) => {
+            const card = document.createElement("div");
+            card.classList.add("col-md-4", "mb-4");
+            card.innerHTML = `
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title playfair">${product.fields.name}</h5>
+                <p class="card-text noto-serif">${product.fields.description}</p>
+                <p class="card-text noto-serif">Amount: ${product.fields.amount}</p>
+                <button class="btn btn-danger" onclick="deleteProduct(${product.pk})">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                        <style>svg{fill:#ffffff}</style>
+                        <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+                    </svg>
+                </button>
+                </div>
+            </div>
+            `;
+
+            document.getElementById("product_cards").appendChild(card);
+        });
+        }
+        refreshProducts()
+        ```
+
+**3. Melakukan perintah collectstatic.**
+
+- Pertama-tama, pada berkas `settings.py` saya menambahkan kode sebagai berikut
+    ```python
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+    STATIC_URL = 'static/'
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'main/static'),
+    ]
+    ```
+- Lalu, jalankan perintah di bawah ini pada terminal/command
+    ```python
+    python manage.py collectstatic
+    ```
+**4. Menambahkan fungsionalitas hapus dengan menggunakan AJAX DELETE**
+
+- Untuk menambahkan fungsionalitas hapus dengan menggunakan AJAX DELETE, pertama-tama buat fungsi baru di berkas `views.py` berisi sebagai berikut dan pastikan melakukan routing url pada berkas `urls.py`
+    ```python
+    @csrf_exempt
+    def delete_product_ajax(request, product_id):
+        if request.method == 'POST':
+            try:
+                product = Item.objects.get(id=product_id)
+                product.delete()
+                return HttpResponse("OK", status=200)
+            except Item.DoesNotExist:
+                return HttpResponse("Product not found", status=404)
+
+        return HttpResponseNotFound()
+    ```
+- Lalu pada berkas `main.html`, buat fungsi baru pada block `<script>` dengan nama `deleteProduct`
+    ```javascript
+        async function deleteProduct(productId) {
+            const response = await fetch(`{% url 'main:delete_product_ajax' 0 %}`.replace("0", productId), {
+                method: "POST",
+            });
+
+            if (response.status === 200) {
+                refreshProducts();
+            } else if (response.status === 404) {
+                console.log("Product not found");
+            } else {
+                console.log("Error deleting product");
+            }
+        }
+    ```
+- Dan yang terakhir tambahkan button untuk menampilkan fungsi `deleteProduct`
+    ```html
+    <button class="btn btn-danger" onclick="deleteProduct(${product.pk})">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+            <style>svg{fill:#ffffff}</style>
+            <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+        </svg>
+    </button>
+    ```

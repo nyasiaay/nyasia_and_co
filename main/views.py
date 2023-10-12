@@ -1,5 +1,6 @@
 import datetime
 from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound
 from main.forms import ProductForm
 from django.urls import reverse
 from main.models import Item
@@ -12,6 +13,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import csrf_exempt
 
 
 # Create your views here.
@@ -121,3 +123,34 @@ def edit_product(request, id):
 
     context = {'form': form}
     return render(request, "edit_product.html", context)
+
+def get_product_json(request):
+    product_item = Item.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', product_item))
+
+@csrf_exempt
+def add_product_ajax(request):
+    if request.method == 'POST':
+        name = request.POST.get("name")
+        amount = request.POST.get("amount")
+        description = request.POST.get("description")
+        user = request.user
+
+        new_product = Item(name=name, amount=amount, description=description, user=user)
+        new_product.save()
+
+        return HttpResponse(b"CREATED", status=201)
+
+    return HttpResponseNotFound()
+
+@csrf_exempt
+def delete_product_ajax(request, product_id):
+    if request.method == 'POST':
+        try:
+            product = Item.objects.get(id=product_id)
+            product.delete()
+            return HttpResponse("OK", status=200)
+        except Item.DoesNotExist:
+            return HttpResponse("Product not found", status=404)
+
+    return HttpResponseNotFound()

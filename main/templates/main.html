@@ -11,7 +11,9 @@
         padding: 0;
     }
     body {
-        background: linear-gradient(125deg, #ECFCFF 0%, #ECFCFF 40%, #B2FCFF calc(40% + 1px), #B2FCFF 60%, #5EDFFF calc(60% + 1px), #5EDFFF 72%, #3E64FF calc(72% + 1px), #3E64FF 100%);    }
+        background: linear-gradient(125deg, #ECFCFF 0%, #ECFCFF 40%, #B2FCFF calc(40% + 1px), #B2FCFF 60%, #5EDFFF calc(60% + 1px), #5EDFFF 72%, #3E64FF calc(72% + 1px), #3E64FF 100%);    
+        height: 100%
+    }
     .custom-padding {
         padding-right: 10px;
     }
@@ -31,31 +33,23 @@
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         padding: 20px;
     }
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    table, th, td {
-        border: 1.5px solid #dedddd;
-        vertical-align: middle;
-        padding: 10px;
-        font-weight: 600;
-    }
-    th {
-        background-color: #151414;
-        color: #f7f7f7;
-        text-align: center;
-        font-weight: bold;
-    }
-    td {
-        vertical-align: top;
-    }
-    tr{
+    .card {
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         background-color: #f2f2f2;
-    }
-    tr:last-child {
-        background-color: #a3e4d9;
-    }
+        padding: 10px;
+        }
+
+    .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        }
+
+    .card-text {
+        font-size: 1rem;
+        color: #555;
+        }
 </style>
 
 <nav class="navbar navbar-expand-lg">
@@ -82,57 +76,99 @@
 
 <div class="container mt-5 background-container">
     <h1 class="playfair mb-3">Nyasia & Co.</h1>
-    <p class="noto-serif">You have saved <b>{{ items_count }}</b> items in this app</p>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th class="col-1">Amount</th>
-                <th>Description</th>
-                <th class="col-1">Actions</th>
-            </tr>
-        </thead>
-        <tbody class="table-group-divider last-table">
-            {% for product in products %}
-                <tr>
-                    <td>{{ product.name }}</td>
-                    <td>
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url 'main:add_amount' product.id %}" class="btn btn-outline-secondary btn-sm mr-4">
-                                <b>+</b>
-                            </a>
+<div id="product_cards" class="row mt-3"></div>
 
-                            {{ product.amount }}
-                            <a href="{% url 'main:minus_amount' product.id %}" class="btn btn-outline-secondary btn-sm ml-4">
-                                <b>-</b>
-                            </a>
-                        </div>
-                    </td>
-                    <td>{{ product.description }}</td>
-                    <td class="text-center">
-                        <a href="{% url 'main:edit_product' product.pk %}" class="btn btn-primary btn-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
-                                <style>svg{fill:#ffffff}</style>
-                                <path d="M471.6 21.7c-21.9-21.9-57.3-21.9-79.2 0L362.3 51.7l97.9 97.9 30.1-30.1c21.9-21.9 21.9-57.3 0-79.2L471.6 21.7zm-299.2 220c-6.1 6.1-10.8 13.6-13.5 21.9l-29.6 88.8c-2.9 8.6-.6 18.1 5.8 24.6s15.9 8.7 24.6 5.8l88.8-29.6c8.2-2.7 15.7-7.4 21.9-13.5L437.7 172.3 339.7 74.3 172.4 241.7zM96 64C43 64 0 107 0 160V416c0 53 43 96 96 96H352c53 0 96-43 96-96V320c0-17.7-14.3-32-32-32s-32 14.3-32 32v96c0 17.7-14.3 32-32 32H96c-17.7 0-32-14.3-32-32V160c0-17.7 14.3-32 32-32h96c17.7 0 32-14.3 32-32s-14.3-32-32-32H96z"/>
-                            </svg>
-                        </a>                        
-                        <a href="{% url 'main:delete_item' product.pk %}" class="btn btn-danger btn-sm">
-                            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
-                                <style>svg{fill:#ffffff}</style>
-                                <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
-                            </svg>
-                        </a>                        
-                    </td>
-                </tr>
-                
-            {% endfor %}
-        </tbody>
-    </table>
-
-    <h5 class="mt-4 noto-serif"><strong>Last login session: {{ last_login }}</strong></h5>
-    <a href="{% url 'main:create_product' %}" class="btn btn-success mt-2">
-        Add New Product
-    </a>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form" onsubmit="return false;">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="name"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="amount" class="col-form-label">Amount:</label>
+                        <input type="number" class="form-control" id="amount" name="amount"></input>
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="col-form-label">Description:</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Item</button>
+            </div>
+        </div>
+    </div>
 </div>
+<div class = "ml-5">
+    <h5 class="mt-3 noto-serif"><strong>Last login session: {{ last_login }}</strong></h5>
+    <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
+</div>
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+    async function refreshProducts() {
+        document.getElementById("product_cards").innerHTML = ""
+        const products = await getProducts()
+        products.forEach((product) => {
+        const card = document.createElement("div");
+        card.classList.add("col-md-4", "mb-4");
+        card.innerHTML = `
+        <div class="card">
+            <div class="card-body">
+            <h5 class="card-title playfair">${product.fields.name}</h5>
+            <p class="card-text noto-serif">${product.fields.description}</p>
+            <p class="card-text noto-serif">Amount: ${product.fields.amount}</p>
+            <button class="btn btn-danger" onclick="deleteProduct(${product.pk})">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                    <style>svg{fill:#ffffff}</style>
+                    <path d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"/>
+                </svg>
+            </button>
+            </div>
+        </div>
+        `;
+
+        document.getElementById("product_cards").appendChild(card);
+    });
+    }
+    refreshProducts()
+
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
+
+    document.getElementById("button_add").onclick = addProduct
+
+    async function deleteProduct(productId) {
+        const response = await fetch(`{% url 'main:delete_product_ajax' 0 %}`.replace("0", productId), {
+            method: "POST",
+        });
+
+        if (response.status === 200) {
+            refreshProducts();
+        } else if (response.status === 404) {
+            console.log("Product not found");
+        } else {
+            console.log("Error deleting product");
+        }
+    }
+</script>
 {% endblock content %}
