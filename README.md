@@ -4,7 +4,7 @@
 
 ### Kelas   : PBP E
 
-### Link    : `[nyasia-aludra-tugas.pbp.cs.ui.ac.id](http://nyasia-aludra-tugas.pbp.cs.ui.ac.id/)`
+### Link    : http://nyasia-aludra-tugas.pbp.cs.ui.ac.id
 
 # Tugas 2
 
