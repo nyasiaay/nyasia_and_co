@@ -4,7 +4,7 @@
 
 ### Kelas   : PBP E
 
-### Link    : `https://nyasia-and-co.adaptable.app/main/`
+### Link    : `nyasia-aludra-tugas.pbp.cs.ui.ac.id`
 
 # Tugas 2
 
