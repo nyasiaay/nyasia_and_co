@@ -842,10 +842,6 @@ Berikut adalah tampilan kedua akun yang telah saya buat dengan tombol-tombol yan
 ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/e099cc7e-3eec-4b0a-859e-062f3b2b0fac)
 
 
-![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/555831ae-832e-44f0-8ae5-61d0b54b1d77)
-
-![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/e099cc7e-3eec-4b0a-859e-062f3b2b0fac)
-
 # Tugas 5
 
 ## 1.Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
@@ -1482,7 +1478,7 @@ Ini adalah link (a) dengan teks “Add New Product”. Atribut `href="{% url 'ma
 Berikut adalah hasil akhir halaman daftar inventori saya
 ![image](https://github.com/nyasiaay/nyasia_and_co/assets/124874640/06d33605-f543-42a5-9ca4-4ae235041018)
 
-# Tugas 5
+# Tugas 6
 
 ## 1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
 
