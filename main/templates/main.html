@@ -115,6 +115,7 @@
     <h5 class="mt-3 noto-serif"><strong>Last login session: {{ last_login }}</strong></h5>
     <button type="button" class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Item by AJAX</button>
 </div>
+
 <script>
     async function getProducts() {
         return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
